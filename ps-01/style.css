@@ -1,0 +1,60 @@
+
+/*set up the animation properties*/
+@keyframes animate {
+
+   /*can also use from/to instead of % values (use % for sequencing)*/
+   0% {font-size: 24px; color: gainsboro}
+   50% {font-size: 240px; color: darkgray}
+   100% {font-size: 100px; color: gainsboro; left:200px}
+   animation-timing-function: ease-in;
+
+}
+
+@keyframes appear {
+
+   /*can also use from/to instead of % values (use % for sequencing)*/
+   0% {opacity:0;visibility:hidden;}
+   90% {opacity:0;visibility:hidden;}
+   100% {opacity:1; visibility:visible;}
+
+}
+
+/*style the div, and bind the animation to it*/
+.greeting {
+ 
+  font-size: 100px;
+  font-weight: semibold;
+  color: gainsboro;
+  text-align: center;
+  left:50%;
+  top:50%;
+  padding-top: 150px;	
+
+  animation-name: animate;
+  animation-duration: 5s;
+
+}
+
+.greeting2 {
+
+    font-size: 100px;
+    font-weight: semibold;
+    color: gainsboro;
+    text-align: center;
+    left:50%;
+    top:50%;
+    padding-top: 150px;
+
+}
+
+.link{
+  display:block;
+  text-align:center;
+  animation-name: appear;
+  animation-duration: 7s;
+}
+
+.link2{
+    display:block;
+    text-align:center;
+}
