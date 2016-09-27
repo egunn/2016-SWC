@@ -109,9 +109,49 @@ h2{
     margin-top: 5px;
 }
 
+img {
+    flex: 1 200px;
+    padding:0px;
+    border-radius:10px;
+    -moz-border-radius:10px;
+    -webkit-border-radius: 10px;
+    overflow:hidden;
+    margin-top:60px;
+    margin-left:50px;
+}
+
+.photodiv {
+    height:100%;
+    width:400px;
+    float:left;
+}
+
+
+.name{
+
+}
+
+.profile-text{
+    display:block;
+    position:relative;
+    float:left;
+    padding-top:290px;
+}
+
+.title{
+
+}
+
 svg{
     width:98%;
     height:430px;
+    padding:5px;
+    border:none;
+}
+
+.svg3{
+    width:98%;
+    height:408px;
     padding:5px;
     border:none;
 }
@@ -125,14 +165,16 @@ canvas{
 
 .link{
   display:block;
-  text-align:center;
-  animation-name: appear;
-  animation-duration: 7s;
+  text-align:left;
 }
 
 .link2{
     display:block;
     text-align:center;
+}
+
+ul{
+    padding-left:5px;
 }
 
 /*Part A*/
@@ -161,6 +203,7 @@ canvas{
     90% {transform:rotate(1180deg); margin-top:200px; margin-left:900px;}
     95% {transform:rotate(1240deg); margin-top:250px; margin-left:950px;}
     100% {transform:rotate(1300deg); margin-top:325px; margin-left:1000px;}
+    110% {transform:rotate(1300deg); margin-top:410px; margin-left:1050px;}
 }
 
 #B2_1 {
