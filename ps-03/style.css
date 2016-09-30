@@ -37,6 +37,17 @@ body{
     font-family: "Open Sans", Arial, sans-serif;
     padding-left: 15px;
     font-size:10pt;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+
 }
 
 h1,
@@ -53,6 +64,7 @@ strong {
     letter-spacing: 2px;
     font-weight: lighter;
     word-spacing: 4px;
+    text-align:center;
 
 }
 
@@ -61,8 +73,8 @@ a{
 }
 
 h2{
-    display:inline-block;
-    float:left;
+    /*display:inline-block;
+    float:left;*/
     margin:0px;
     padding-top:20px;
 }
@@ -75,10 +87,12 @@ h2{
     list-style: none;
     margin:0px;
     padding-top:15px;
+    padding-bottom:5px;
 }
 
 .fplinks {
-    float:left;
+
+    text-align:center;
     list-style: none;
     padding: 0px;
     margin:0px;
