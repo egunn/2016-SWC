@@ -1,0 +1,264 @@
+/* latin */
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans'), local('OpenSans'), url('./fonts/OpenSans-Regular.ttf') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+@font-face {
+    font-family: 'Work Sans Thin';
+    font-style: thin;
+    font-weight: 400;
+    src: local('Work Sans Thin'), local('WorkSansThin'), url('./fonts/WorkSans-Thin.ttf') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+
+@font-face {
+    font-family: 'Open Sans Black';
+    font-style: black;
+    font-weight: 400;
+    src: local('Open Sans Black'), local('OpenSansBlack'), url('./fonts/OpenSans-ExtraBold.ttf') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+@font-face {
+    font-family: 'Frijole-Regular';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Frijole-Regular'), local('Frijole-Regular'), url('./fonts/Frijole-Regular.ttf') format('ttf');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+
+body{
+    font-family: "Open Sans", Arial, sans-serif;
+    padding-left: 15px;
+    font-size:10pt;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+strong {
+    color: darkslategrey;
+    text-transform: uppercase;
+    font-family: "Open Sans", Arial, sans-serif;
+    margin-top: 1.5em;
+    margin-bottom: 0em;
+    letter-spacing: 2px;
+    font-weight: lighter;
+    word-spacing: 4px;
+
+}
+
+a{
+    color:darkgray;
+}
+
+h2{
+    display:inline-block;
+    float:left;
+    margin:0px;
+    padding-top:20px;
+}
+
+/*following example at http://jsfiddle.net/sncb91t8/*/
+.links{
+
+    color:darkgray;
+    float:right;
+    list-style: none;
+    margin:0px;
+    padding-top:15px;
+}
+
+.fplinks {
+    float:left;
+    list-style: none;
+    padding: 0px;
+    margin:0px;
+}
+
+.links li{
+    position:relative;
+    display:inline-block;
+    list-style-type:none;
+    padding:0 4px;
+}
+
+.links li > a {
+    position: relative;
+    display: block;
+}
+
+.anchor {
+    display:block;
+    clear:both;
+    height: 450px;
+    /*background:lightgrey;*/
+    border:1px;
+    border-left:5px;
+    border-style:solid;
+    border-color: lightgrey;
+    border-radius:10px;
+    margin-top: 5px;
+}
+
+img {
+    flex: 1 200px;
+    padding:0px;
+    border-radius:10px;
+    -moz-border-radius:10px;
+    -webkit-border-radius: 10px;
+    overflow:hidden;
+    margin-top:60px;
+    margin-left:50px;
+}
+
+.photodiv {
+    height:100%;
+    width:400px;
+    float:left;
+}
+
+
+.name{
+
+}
+
+.profile-text{
+    display:block;
+    position:relative;
+    float:left;
+    padding-top:290px;
+}
+
+.title{
+
+}
+
+svg{
+    width:98%;
+    height:430px;
+    padding:5px;
+    border:none;
+}
+
+.svg3{
+    width:98%;
+    height:408px;
+    padding:5px;
+    border:none;
+}
+
+canvas{
+    width:98%;
+    height:430px;
+    padding:5px;
+    border:none;
+}
+
+.link{
+  display:block;
+  text-align:left;
+}
+
+.link2{
+    display:block;
+    text-align:center;
+}
+
+ul{
+    padding-left:5px;
+}
+
+/*Part A*/
+
+
+/*Part B*/
+@keyframes B2_1anim {
+    0%   {transform:rotate(80deg); margin-top:105px; margin-left:0px;}
+    5%  {transform:rotate(140deg); margin-top:110px; margin-left:50px;}
+    10%  {transform:rotate(200deg); margin-top:120px; margin-left:100px;}
+    15%  {transform:rotate(260deg); margin-top:135px; margin-left:150px;}
+    20% {transform:rotate(320deg); margin-top:150px; margin-left:200px;}
+    25% {transform:rotate(380deg); margin-top:175px; margin-left:250px;}
+    30% {transform:rotate(460deg); margin-top:200px; margin-left:300px;}
+    35% {transform:rotate(520deg); margin-top:250px; margin-left:350px;}
+    40% {transform:rotate(580deg); margin-top:325px; margin-left:400px;}
+    45% {transform:rotate(640deg); margin-top:410px; margin-left:450px;}
+    50% {transform:rotate(700deg); margin-top:325px; margin-left:500px;}
+    55% {transform:rotate(760deg); margin-top:250px; margin-left:550px;}
+    60% {transform:rotate(820deg); margin-top:200px; margin-left:600px;}
+    65% {transform:rotate(880deg); margin-top:175px; margin-left:650px;}
+    70% {transform:rotate(940deg); margin-top:150px; margin-left:700px;}
+    75% {transform:rotate(1000deg); margin-top:135px; margin-left:750px;}
+    80% {transform:rotate(1060deg); margin-top:150px; margin-left:800px;}
+    85% {transform:rotate(1120deg); margin-top:175px; margin-left:850px;}
+    90% {transform:rotate(1180deg); margin-top:200px; margin-left:900px;}
+    95% {transform:rotate(1240deg); margin-top:250px; margin-left:950px;}
+    100% {transform:rotate(1300deg); margin-top:325px; margin-left:1000px;}
+    110% {transform:rotate(1300deg); margin-top:410px; margin-left:1050px;}
+}
+
+#B2_1 {
+    margin-top:100px;
+    margin-left:0px;
+    height:20px;
+    width:20px;
+    background:black;
+    transform:rotate(20deg);
+    animation-name: B2_1anim;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+#B2_2 {
+    position:absolute;
+    top:895px;
+    left:650px;
+    height:200px;
+    width:200px;
+    background:darkgrey;
+}
+
+#B2_3 {
+    position:absolute;
+    margin-top:-110px;
+    margin-left:250px;
+    height:100px;
+    width:100px;
+    background:lightgrey;
+    transform:rotate(20deg);
+/*    animation-name: B2_3anim;
+    animation-duration: 15s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;*/
+}
+
+
+/*Part C*/
+.quiet {
+    font-family:"Work Sans Thin";
+    font-size: 60pt;
+    letter-spacing: 0px;
+    color: lightgray;
+    display:flex;
+    justify-content:center;
+    align-items:flex-end;
+    padding-top:250px;
+}
+
+.loud {
+    font-family:"Open Sans Black";
+    font-size: 200pt;
+    letter-spacing: -30px;
+    margin-top:-300px;
+    margin-left:20px;
+}
