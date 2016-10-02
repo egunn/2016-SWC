@@ -83,7 +83,6 @@ h2{
 .links{
 
     color:darkgray;
-    float:right;
     list-style: none;
     margin:0px;
     padding-top:15px;
@@ -96,6 +95,7 @@ h2{
     list-style: none;
     padding: 0px;
     margin:0px;
+    padding-bottom:175px;
 }
 
 .links li{
@@ -179,7 +179,7 @@ canvas{
 
 .link{
   display:block;
-  text-align:left;
+
 }
 
 .link2{
@@ -191,88 +191,5 @@ ul{
     padding-left:5px;
 }
 
-/*Part A*/
 
 
-/*Part B*/
-@keyframes B2_1anim {
-    0%   {transform:rotate(80deg); margin-top:105px; margin-left:0px;}
-    5%  {transform:rotate(140deg); margin-top:110px; margin-left:50px;}
-    10%  {transform:rotate(200deg); margin-top:120px; margin-left:100px;}
-    15%  {transform:rotate(260deg); margin-top:135px; margin-left:150px;}
-    20% {transform:rotate(320deg); margin-top:150px; margin-left:200px;}
-    25% {transform:rotate(380deg); margin-top:175px; margin-left:250px;}
-    30% {transform:rotate(460deg); margin-top:200px; margin-left:300px;}
-    35% {transform:rotate(520deg); margin-top:250px; margin-left:350px;}
-    40% {transform:rotate(580deg); margin-top:325px; margin-left:400px;}
-    45% {transform:rotate(640deg); margin-top:410px; margin-left:450px;}
-    50% {transform:rotate(700deg); margin-top:325px; margin-left:500px;}
-    55% {transform:rotate(760deg); margin-top:250px; margin-left:550px;}
-    60% {transform:rotate(820deg); margin-top:200px; margin-left:600px;}
-    65% {transform:rotate(880deg); margin-top:175px; margin-left:650px;}
-    70% {transform:rotate(940deg); margin-top:150px; margin-left:700px;}
-    75% {transform:rotate(1000deg); margin-top:135px; margin-left:750px;}
-    80% {transform:rotate(1060deg); margin-top:150px; margin-left:800px;}
-    85% {transform:rotate(1120deg); margin-top:175px; margin-left:850px;}
-    90% {transform:rotate(1180deg); margin-top:200px; margin-left:900px;}
-    95% {transform:rotate(1240deg); margin-top:250px; margin-left:950px;}
-    100% {transform:rotate(1300deg); margin-top:325px; margin-left:1000px;}
-    110% {transform:rotate(1300deg); margin-top:410px; margin-left:1050px;}
-}
-
-#B2_1 {
-    margin-top:100px;
-    margin-left:0px;
-    height:20px;
-    width:20px;
-    background:black;
-    transform:rotate(20deg);
-    animation-name: B2_1anim;
-    animation-duration: 15s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-}
-
-#B2_2 {
-    position:absolute;
-    top:895px;
-    left:650px;
-    height:200px;
-    width:200px;
-    background:darkgrey;
-}
-
-#B2_3 {
-    position:absolute;
-    margin-top:-110px;
-    margin-left:250px;
-    height:100px;
-    width:100px;
-    background:lightgrey;
-    transform:rotate(20deg);
-/*    animation-name: B2_3anim;
-    animation-duration: 15s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;*/
-}
-
-
-/*Part C*/
-.quiet {
-    font-family:"Work Sans Thin";
-    font-size: 60pt;
-    letter-spacing: 0px;
-    color: lightgray;
-    display:flex;
-    justify-content:center;
-    align-items:flex-end;
-    padding-top:250px;
-}
-
-.loud {
-    font-family:"Open Sans Black";
-    font-size: 200pt;
-    letter-spacing: -30px;
-    margin-top:-300px;
-    margin-left:20px;
-}
