@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>canvas starter document</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+
+  <h2 id="CS1">Rules Sketch</h2>
+  <div class="links">
+    <ul>
+      Jump to:
+      <a href="brokengrid.html"><li>Broken Grid</li></a>
+      <a href="33lines.html"><li>Nonintersecting</li></a>
+      <a href="333lines.html"><li>Intersecting</li></a>
+      <a href="index.html"><li>Index</li></a>
+      <ul>
+  </div>
+    <canvas id="canvas" width="500" height="500"></canvas>
+
+  <input class="slider" id="fractionslider" type="range" min="0" max="1" value=".2" step=".05" />
+  <span class="rangespan">branch point</span>
+  <input class="slider" id="branchangleslider" type="range" min="2" max="30" value="18" step="1" />
+  <span class="rangespan">branch angle</span>
+  <input class="slider" id="scaleslider" type="range" min=".1" max="1.2" value=".9" step=".1" />
+  <span class="rangespan">branch length</span>
+
+  <br>
+  <h4>The Rules</h4>
+  <ul>
+    <li>1. Draw a line (click with mouse)</li>
+    <li>2. Move to a point at distance d along the line (branch point) </li>
+    <li>3. Draw a new line at angle theta from the previous line (branch angle)</li>
+    <li>4. The length of the new line should be l (branch length)</li>
+  </ul>
+
+  </body>
+
+
+  <script src="./rules.js"></script>
+
+</html>

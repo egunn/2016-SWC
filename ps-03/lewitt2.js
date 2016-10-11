@@ -5,7 +5,12 @@ var height = canvas.height;
 var lineArray;
 var l; //keep track of how many lines have been drawn
 var t; //keep track of how many points (steps along line) to move
+
+
+
 var drawingPad = canvas.getContext('2d');
+
+
 //drawingPad.fillStyle = "hsla(0,10%,10%,1)";
 //drawingPad.fillRect(0, 0, 20, 20);
 makeArray();
