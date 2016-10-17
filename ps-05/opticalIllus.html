@@ -1,32 +1,40 @@
 ﻿<!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="UTF-8">
     <title>canvas starter document</title>
     <link rel="stylesheet" href="style.css">
-  </head>
+</head>
 
-  <body>
-    <h2 id="B1">Optical Illusions</h2>
-    <div class="links">
-      <ul>
+<body>
+<h2 id="B1">Optical Illusions</h2>
+<div class="links">
+    <ul>
         Jump to:
         <a class="link" href="grid2.html">Grid Redux</a>
         <a class="link" href="eyeexam.html">Eye Exam</a>
         <a class="link" href="poster.html">Poster Analysis</a>
-        <a href="index.html"><li>Index</li></a>
+        <a href="index.html">
+            <li>Index</li>
+        </a>
         <ul>
-    </div>
-      <canvas id="canvas" width="500" height="500"></canvas>
-    <br>
-    <div class="buttondiv">
-      <button onClick="buttonPress1()">33 lines</button>
-      <button onClick="buttonPress2()">333 lines</button>
-    </div>
+</div>
+<canvas id="canvas" width="350" height="350"></canvas>
+<br>
+
+<span class="rangespan">Foreground Color:</span>
+<input class="jscolor" onchange="updateForeground(this.jscolor)" value="#6ca31a">
+<br>
+<span class="rangespan">Background Color:</span>
+<input class="jscolor" onchange="updateBackground(this.jscolor)" value='#882493'>
+
+<br>
+<a class="link" href="https://commons.wikimedia.org/wiki/File:Motion_illusion_in_star_arrangement.png">Original File</a>
 
 
-  </body>
+</body>
 
-  <script src="./opticalIllus.js"></script>
+<script src="./jscolor.min.js"></script>
+<script src="./opticalillus.js"></script>
 
 </html>

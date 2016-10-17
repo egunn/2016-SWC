@@ -2,49 +2,97 @@ var canvas = document.getElementById('canvas');
 
 var width = canvas.width;
 var height = canvas.height;
+
+var backgroundColor = '#882493';
+var bubbleColor = "#6ca31a";
+
 var drawingPad = canvas.getContext('2d');
+var greatRadius = 9;
+var radius = .45;
+var offset = 0;
+var multiplier = 1.15;
 
-/*
-for (var x=0; x<32; x++){
- var radians = x*(360/32)*Math.PI/180;
- drawingPad.beginPath();
- drawingPad.moveTo(100*Math.sin(radians + Math.PI/2)+width/2,20*Math.cos(radians + Math.PI/2)+width/2);
- drawingPad.lineTo(250*Math.sin(radians)+width/2,250*Math.cos(radians)+width/2);
- drawingPad.stroke();
-}
-*/
+drawIllusion();
 
-//draw 33 lines version by default
-buttonPress1();
+function drawIllusion() {
 
-//runs when user presses the button
-function buttonPress1(){
-    drawingPad.clearRect(0,0,width,height);
+    canvas.style.backgroundColor = backgroundColor;
 
-    for (var x=0; x<32; x++){
-        var radians = x*(360/32)*Math.PI/180;
+for (var j = 0; j< 35; j++) {
+
+    if (isEven(j) === true) {
+        offset = 0;
+    }
+    else{
+        offset = 1;
+    }
+
+    for (var i = 0; i < 30; i++) {
+        var angle = 2 * i * Math.PI / 30 + offset * Math.PI / 30;
+        var centerX = greatRadius * Math.sin(angle) + width / 2;
+        var centerY = greatRadius * Math.cos(angle) + height / 2;
+
+        drawingPad.fillStyle = "white";
         drawingPad.beginPath();
-        drawingPad.moveTo(90*Math.sin(radians + Math.PI/6)+width/2,30*Math.cos(radians + Math.PI/4)+width/2);
-        drawingPad.lineTo(250*Math.sin(radians)+width/2,250*Math.cos(radians)+width/2);
-        drawingPad.lineWidth = x/5;
-        drawingPad.stroke();
+        drawingPad.arc(centerX, centerY, radius*1.3, -angle+Math.PI/2, -angle-Math.PI/2, false);
+        drawingPad.fill();
+
+        drawingPad.fillStyle = "black";
+        drawingPad.beginPath();
+        drawingPad.arc(centerX, centerY, radius*1.3, -angle-Math.PI/2, -angle+Math.PI/2, false);
+        drawingPad.fill();
+
+
+        drawingPad.fillStyle = bubbleColor;
+        drawingPad.beginPath();
+        drawingPad.arc(centerX, centerY, radius, 0, 2 * Math.PI, false);
+        drawingPad.fill();
+
+    }
+    greatRadius = greatRadius * multiplier;
+    radius = radius * multiplier;
+
+    if(j==34){
+        drawingPad.fillStyle = "white";
+        drawingPad.beginPath();
+        drawingPad.arc(width/2, height/2, 17, Math.PI/4, Math.PI+3*Math.PI/4, false);
+        drawingPad.fill();
+
+        drawingPad.fillStyle = "black";
+        drawingPad.beginPath();
+        drawingPad.arc(width/2, height/2, 17, -Math.PI/4, Math.PI - Math.PI/4, false);
+        drawingPad.fill();
+
+        drawingPad.fillStyle = bubbleColor;
+        drawingPad.beginPath();
+        drawingPad.arc(width/2, height/2, 15, 0, 2 * Math.PI, false);
+        drawingPad.fill();
     }
 }
-
-function buttonPress2(){
-
-    drawingPad.clearRect(0,0,width,height);
-
-    for (var x=0; x<332; x++){
-        var beginx = (width/26 * (x % 25))+width/26;
-        var row = Math.floor(x / 25);
-        var beginy = row*(height/15) + height/15-10;
-
-        drawingPad.beginPath();
-        drawingPad.moveTo(beginx - Math.random()*5,beginy );
-        drawingPad.lineTo(beginx + Math.random()*5,beginy + 20);
-        drawingPad.lineWidth = 1;
-        drawingPad.stroke();
-    }
 }
 
+
+function updateForeground(jscolor) {
+    bubbleColor = '#' + jscolor;
+    drawingPad.clearRect(0,0,width,height);
+    greatRadius = 9;
+    radius = .45;
+    offset = 0;
+    multiplier = 1.15;
+    drawIllusion();
+}
+
+
+function updateBackground(jscolor) {
+    //console.log('#' + jscolor);
+    backgroundColor = '#' + jscolor;
+    drawingPad.clearRect(0,0,width,height);
+    greatRadius = 9;
+    radius = .45;
+    offset = 0;
+    multiplier = 1.15;
+    drawIllusion();
+}
+
+
+function isEven(n) { return n % 2 == 0; }

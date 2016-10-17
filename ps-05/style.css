@@ -7,11 +7,20 @@
     unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
 }
 
+@font-face {
+    font-family: 'Archivo';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Archivo'), local('Archivo'), url('./fonts/ArchivoBlack.otf') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+
 body{
     font-family: "Open Sans", Arial, sans-serif;
     padding-left: 15px;
     font-size:10pt;
-
+    color: darkgray;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -131,11 +140,6 @@ button {
 }
 
 
-.link{
-  display:block;
-
-}
-
 .link2{
     display:block;
     text-align:center;
@@ -150,4 +154,70 @@ ul{
 }
 
 
+.colorBox {
+    color:darkgray;
+}
 
+
+.slider {
+    width: 150px;
+    height: 17px;
+    position: relative;
+    margin-top: 25px;
+    margin-bottom:6px;
+    background: lightgray;
+
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+
+}
+
+.slider .bar {
+    width: 386px;
+    height: 5px;
+    background: lightslategrey;
+    position: absolute;
+    top: 6px;
+    left: 8px;
+
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
+.slider .highlight {
+    height: 2px;
+    position: absolute;
+    width: 388px;
+    top: 6px;
+    left: 6px;
+
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    border-radius: 40px;
+
+    background: rgba(255, 255, 255, 0.25);
+}
+
+
+input[type="range"] {
+    -webkit-appearance: none;
+    background-color: gainsboro;
+    height: 2px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    position: relative;
+    top: 0px;
+    z-index: 1;
+    width: 5px;
+    height: 10px;
+    cursor: pointer;
+
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    background-color:gainsboro;
+}
