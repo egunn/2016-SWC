@@ -15,12 +15,12 @@ var numLett = 1;
 var centerLett = 0;
 var numLines = 5;
 
-for (var j = 0; j < numLines; j++) {
-    for (var i = 0; i < numLett; i++) {
-        letter = alphabetArray[Math.floor(Math.random() * alphabetArray.length)];
-        drawingPad.font = fontSize + "px Arial";
-        drawingPad.textAlign = "center";
-        drawingPad.fillText(letter, width / 2 + (i - centerLett) * fontSize * fontSpace, linePlacement);
+for (var j = 0; j < numLines; j++){
+    for (var i=0; i<numLett; i++){
+        letter = alphabetArray[Math.floor(Math.random()*alphabetArray.length)];
+        drawingPad.font= fontSize + "px Arial";
+        drawingPad.textAlign="center";
+        drawingPad.fillText(letter, width/2+(i-centerLett)*fontSize*fontSpace,linePlacement);
     }
 
     linePlacement = linePlacement + 55;//fontSize + 30 ;
@@ -28,6 +28,6 @@ for (var j = 0; j < numLines; j++) {
     fontSpace = fontSpace + fontOffset;
     fontOffset += .1;
     numLett += 2;
-    centerLett++;
+    centerLett ++;
 }
 
