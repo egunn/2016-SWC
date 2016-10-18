@@ -4,62 +4,30 @@ var width = canvas.width;
 var height = canvas.height;
 var drawingPad = canvas.getContext('2d');
 
+//use only letters approved for eye exam chart, based on visual weighting
 var alphabetArray = ['C', 'D', 'E', 'F', 'H', 'K', 'N', 'P', 'R', 'U', 'V', 'Z'];
 var letter;
 var fontSize = 36;
 linePlacement = 80;
 var fontSpace = 1;
+var fontOffset = .2;
+var numLett = 1;
+var centerLett = 0;
+var numLines = 5;
 
-//line 1
-letter = alphabetArray[Math.floor(Math.random()*alphabetArray.length)];
-drawingPad.font= fontSize + "px Arial";
-drawingPad.textAlign="center";
-drawingPad.fillText(letter,width/2+(0*fontSize),linePlacement);
+for (var j = 0; j < numLines; j++){
+    for (var i=0; i<numLett; i++){
+        letter = alphabetArray[Math.floor(Math.random()*alphabetArray.length)];
+        drawingPad.font= fontSize + "px Arial";
+        drawingPad.textAlign="center";
+        drawingPad.fillText(letter, width/2+(i-centerLett)*fontSize*fontSpace,linePlacement);
+    }
 
-linePlacement = linePlacement + 55;//fontSize + 20;
-fontSize = fontSize - 10;
-fontSpace = fontSpace + .2;
-
-//line 2
-for (var i=0; i<3; i++){
-    letter = alphabetArray[Math.floor(Math.random()*alphabetArray.length)];
-    drawingPad.font= fontSize + "px Arial";
-    drawingPad.textAlign="center";
-    drawingPad.fillText(letter, width/2+(i-1)*fontSize*fontSpace,linePlacement);
+    linePlacement = linePlacement + 55;//fontSize + 30 ;
+    fontSize = fontSize - 10;
+    fontSpace = fontSpace + fontOffset;
+    fontOffset += .1;
+    numLett += 2;
+    centerLett ++;
 }
 
-linePlacement = linePlacement + 55;//fontSize + 30 ;
-fontSize = fontSize - 10;
-fontSpace = fontSpace + .3;
-
-//line 3
-for (var i=0; i<5; i++){
-    letter = alphabetArray[Math.floor(Math.random()*alphabetArray.length)];
-    drawingPad.font= fontSize + "px Arial";
-    drawingPad.textAlign="center";
-    drawingPad.fillText(letter, width/2+(i-2)*fontSize*fontSpace ,linePlacement);
-}
-
-linePlacement = linePlacement + 55;//fontSize + 40 ;
-fontSize = fontSize - 10;
-fontSpace = fontSpace + .4;
-
-//line 3
-for (var i=0; i<7; i++){
-    letter = alphabetArray[Math.floor(Math.random()*alphabetArray.length)];
-    drawingPad.font= fontSize + "px Arial";
-    drawingPad.textAlign="center";
-    drawingPad.fillText(letter, width/2+(i-3)*fontSize*fontSpace ,linePlacement);
-}
-
-linePlacement = linePlacement + 55;// fontSize + 50 ;
-fontSize = fontSize - 10;
-fontSpace = fontSpace + .5;
-
-//line 3
-for (var i=0; i<9; i++){
-    letter = alphabetArray[Math.floor(Math.random()*alphabetArray.length)];
-    drawingPad.font= fontSize + "px Arial";
-    drawingPad.textAlign="center";
-    drawingPad.fillText(letter, width/2+(i-4)*fontSize*fontSpace ,linePlacement);
-}

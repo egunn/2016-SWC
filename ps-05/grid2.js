@@ -11,7 +11,7 @@ function drawBoxes(boxSize){
     for (var x=0; x<=20; x++){
         for (var y=0; y<=20; y++){
             drawingPad.fillStyle = "black";
-            drawingPad.fillRect(x*width/20+(width/60), y*height/20+(height/60), boxSize, boxSize);
+            drawingPad.fillRect(x*width/20+(width/80), y*height/20+(height/80), boxSize, boxSize);
         }
     }
 }
