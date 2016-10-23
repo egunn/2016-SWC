@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="332b979d-d49e-49b4-9ce0-f9e19d477cf5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ps-06-starter.css" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/eyeexam.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/eyeexam.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/grid2.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/grid2.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jscolor.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/opticalIllus.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/opticalillus.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/poster.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/poster.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ps-05/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../ps-05/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/corpse.js" afterPath="$PROJECT_DIR$/corpse.js" />
     </list>
     <ignored path="inclass-092016.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -99,8 +87,8 @@
       <file leaf-file-name="corpse.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/corpse.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
-              <caret line="59" column="6" selection-start-line="59" selection-start-column="6" selection-end-line="59" selection-end-column="6" />
+            <state relative-caret-position="489">
+              <caret line="129" column="24" selection-start-line="129" selection-start-column="24" selection-end-line="129" selection-end-column="24" />
               <folding />
             </state>
           </provider>
@@ -332,12 +320,12 @@
       <workItem from="1476826435045" duration="1006000" />
       <workItem from="1476834113728" duration="3182000" />
       <workItem from="1476844520286" duration="22000" />
-      <workItem from="1477185158695" duration="4086000" />
+      <workItem from="1477185158695" duration="6883000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="118252000" />
+    <option name="totallyTimeSpent" value="121049000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -526,8 +514,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/corpse.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
-          <caret line="59" column="6" selection-start-line="59" selection-start-column="6" selection-end-line="59" selection-end-column="6" />
+        <state relative-caret-position="489">
+          <caret line="129" column="24" selection-start-line="129" selection-start-column="24" selection-end-line="129" selection-end-column="24" />
           <folding />
         </state>
       </provider>

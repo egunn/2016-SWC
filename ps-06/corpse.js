@@ -105,67 +105,104 @@ egunn.drawTop = function(ctx) {
     //ctx.lineWidth = 12;
     ctx.stroke();
 
-
-/*
-    ctx.beginPath();
-    ctx.moveTo(topx,topy);
-    ctx.bezierCurveTo(ctrlx,topy-40,  ctrlx,bottomy+40,  bottomx,bottomy); //curve to x,y,  control point x,y  end point x, y
-    ctx.lineWidth = 1;
-    //ctx.fill();
-    ctx.stroke();
-
-    ctx.beginPath();
-    ctx.moveTo(topx,topy);
-    ctx.bezierCurveTo(ctrlx+20,topy-40,  ctrlx+20,bottomy+40,  bottomx,bottomy); //curve to x,y,  control point x,y  end point x, y
-    ctx.lineWidth = 1;
-    //ctx.fill();
-    ctx.stroke();
-
-    ctx.beginPath();
-    ctx.moveTo(topx,topy);
-    ctx.bezierCurveTo(ctrlx+45,topy-40,  ctrlx+45,bottomy+40,  bottomx,bottomy); //curve to x,y,  control point x,y  end point x, y
-    ctx.lineWidth = 1;
-    //ctx.fill();
-    ctx.stroke();
-
-    ctx.beginPath();
-    ctx.moveTo(topx,topy);
-    ctx.bezierCurveTo(ctrlx+80,topy-40,  ctrlx+80,bottomy+40,  bottomx,bottomy); //curve to x,y,  control point x,y  end point x, y
-    ctx.lineWidth = 1;
-    //ctx.fill();
-    ctx.stroke();
-
-    ctx.beginPath();
-    ctx.moveTo(topx,topy);
-    ctx.bezierCurveTo(ctrlx+120,topy-40,  ctrlx+120,bottomy+40,  bottomx,bottomy); //curve to x,y,  control point x,y  end point x, y
-    ctx.lineWidth = 1;
-    //ctx.fill();
-    ctx.stroke();
-
-    ctx.beginPath();
-    ctx.moveTo(topx,topy);
-    ctx.bezierCurveTo(ctrlx+160,topy-40,  ctrlx+160,bottomy+40,  bottomx,bottomy); //curve to x,y,  control point x,y  end point x, y
-    ctx.lineWidth = 1;
-    //ctx.fill();
-    ctx.stroke();
-
-    ctx.beginPath();
-    ctx.moveTo(topx,topy);
-    ctx.bezierCurveTo(topx+(topx-ctrlx),topy-40,  topx+(topx-ctrlx),bottomy+40,  bottomx,bottomy); //curve to x,y,  control point x,y  end point x, y
-    ctx.lineWidth = 1;
-    ctx.stroke();
-    */
 };
 
 egunn.drawMiddle = function(ctx) {
     egunn.drawArm(ctx, true);
     egunn.drawArm(ctx, false);
     // draw the rest of the body...
+
+    //triangle body
+    ctx.beginPath();
+    ctx.moveTo(190,230);
+    ctx.lineTo(125,480);
+    ctx.lineTo(275,480);
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.moveTo(170,300);
+    ctx.bezierCurveTo(25,200,  200,400,  40,400); //curve to x,y,  control point x,y  end point x, y
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(210,300);
+    ctx.bezierCurveTo(325,400,  370,400,  350,300); //curve to x,y,  control point x,y  end point x, y
+    ctx.lineWidth = 1;
+    ctx.stroke();
 };
 
 egunn.drawBottom = function(ctx) {
     egunn.drawLeg(ctx, true);
     egunn.drawLeg(ctx, false);
+    ctx.beginPath();
+    ctx.moveTo(125,480);
+    ctx.bezierCurveTo(125,500,  50,620,  240,600); //curve to x,y,  control point x,y  end point x, y
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(275,480);
+    ctx.bezierCurveTo(125,500,  200,600,  240,600); //curve to x,y,  control point x,y  end point x, y
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(240,600);
+    ctx.bezierCurveTo(240,540,  250,520,  300,500); //curve to x,y,  control point x,y  end point x, y
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(240,600);
+    ctx.bezierCurveTo(240,600,  300,600,  300,500); //curve to x,y,  control point x,y  end point x, y
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+
+    //bottom fin
+    ctx.beginPath();
+    ctx.moveTo(240,600);
+    ctx.bezierCurveTo(240,640,  250,680,  300,700); //curve to x,y,  control point x,y  end point x, y
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(240,600);
+    ctx.bezierCurveTo(260,640,  250,680,  300,700); //curve to x,y,  control point x,y  end point x, y
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(240,600);
+    ctx.bezierCurveTo(280,640,  250,680,  300,700); //curve to x,y,  control point x,y  end point x, y
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(240,600);
+    ctx.bezierCurveTo(300,640,  250,680,  300,700); //curve to x,y,  control point x,y  end point x, y
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(240,600);
+    ctx.bezierCurveTo(300,640,  270,680,  300,700); //curve to x,y,  control point x,y  end point x, y
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(240,600);
+    ctx.bezierCurveTo(300,630,  275,640,  300,700); //curve to x,y,  control point x,y  end point x, y
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
+    ctx.beginPath();
+    ctx.moveTo(240,600);
+    ctx.bezierCurveTo(240,600,  300,600,  300,700); //curve to x,y,  control point x,y  end point x, y
+    ctx.lineWidth = 1;
+    ctx.stroke();
+
 };
 
 egunn.drawCorpse = function(ctx) {
