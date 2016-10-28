@@ -31,14 +31,6 @@ function makeArray() {
 
 function updateArray(){
     particleArray.forEach(function(d){
-        if (tempMouse.x != null){
-            if (Math.abs(d.x-tempMouse.x) < 100 && Math.abs(d.y-tempMouse.y) < 100){
-                var slopeTan = -(d.x-tempMouse.x)/(d.y-tempMouse.y);
-                // console.log(Math.sin(slopeTan));
-                d.x = d.x + Math.sin(slopeTan);
-                d.y = d.y + Math.cos(slopeTan);
-            }
-        }
 
         if (d.x > width || d.y > height || d.radius < 0.05){
             d.x = Math.random()*width;
@@ -47,11 +39,28 @@ function updateArray(){
             d.radius = 2;
         }
 
-        if (d.lifetime > 0){
-            d.x +=1;
-            d.y += 1;
-            d.lifetime -= 1;
-            d.radius -= 0.02;
+        if (d.lifetime > 0 ){
+            if (tempMouse.x != null){
+                if ((d.x-tempMouse.x)*(d.x-tempMouse.x) + (d.y-tempMouse.y)*(d.y-tempMouse.y) < 10000){
+                    //var slopeTan = -(d.x-tempMouse.x)/(d.y-tempMouse.y);
+                    var angle = Math.atan2(-(d.x-tempMouse.x),(d.y-tempMouse.y))-.5; //switch to + to repel
+                    d.x = d.x + Math.cos(angle);
+                    d.y = d.y + Math.sin(angle);
+                }
+                else{
+                    d.x +=1;
+                    d.y += 1;
+                    d.lifetime -= 1;
+                    d.radius -= 0.02;
+                }
+            }
+            else{
+                d.x +=1;
+                d.y += 1;
+                d.lifetime -= 1;
+                d.radius -= 0.02;
+            }
+
         }
         else {
             d.x = Math.random()*width;
@@ -147,7 +156,7 @@ function main() {
 
 
 
-
+/*
 //This function listens for when the user clicks with the mouse. When they click, it saves the mouse coordinates
 //from http://jsfiddle.net/sierawski/4xezb7nL/
 function getMousePos(canvas, evt) {
@@ -161,7 +170,7 @@ function getMousePos(canvas, evt) {
         y: (evt.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height
     };
 }
-
+*/
 /*
 canvas.addEventListener('click', function(evt) {
         var mousePos = getMousePos(canvas, evt);
@@ -176,6 +185,12 @@ canvas.addEventListener('mousemove', function(evt) {
     //var message = 'Mouse position: ' + mousePos.x + ',' + mousePos.y;
     if (evt.offsetX < width && evt.offsetY < height){
         tempMouse = {x:evt.offsetX, y:evt.offsetY};
+
+        /*drawingPad.fillStyle = "black";
+        drawingPad.beginPath();
+        drawingPad.arc(tempMouse.x, tempMouse.y, 100, 8*Math.PI/8, 12*Math.PI/8, false);
+        drawingPad.fill();*/
+
     }
     else {
         tempMouse = {x:null, y:null};

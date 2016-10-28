@@ -66,7 +66,7 @@ function updateArray(){
 function updateCircles(){
 
     mouseCircleArray.forEach(function(d){
-        d.radius += 10;
+        d.radius += 5*Math.random() ;
         d.lifetime -= 1;
     })
 
@@ -75,7 +75,7 @@ function updateCircles(){
 //frame rate control from http://codetheory.in/controlling-the-frame-rate-with-requestanimationframe/
 //set up vars for controlling frame rate
 
-var fps = 1000;
+var fps = 12;
 var now;
 var then = Date.now();
 var interval = 1000/fps;
@@ -102,7 +102,7 @@ function main() {
 
         //clear the canvas for redrawing
         //drawingPad.clearRect(0, 0, width, height);
-        drawingPad.fillStyle = "hsla(0,0%,100%,0.1)";
+        drawingPad.fillStyle = "hsla(0,0%,100%,1)";
         drawingPad.fillRect(0, 0, width, height);
 
         /*
@@ -117,6 +117,17 @@ function main() {
         */
 
         mouseCircleArray.forEach(function(d){
+            if (d.radius > 25 && d.child < 3){
+                mouseCircleArray.push({
+                    centerX:d.centerX,
+                    centerY:d.centerY,
+                    radius:1,
+                    lifetime:50*Math.random(),
+                    child:d.child+1
+                });
+                d.child ++ ;
+            }
+
             drawingPad.strokeStyle = "hsl(0,0%," + (100-d.lifetime) + "% )";
             drawingPad.beginPath();
             drawingPad.arc(d.centerX, d.centerY, d.radius, 0, 2 * Math.PI, false);
@@ -170,7 +181,7 @@ canvas.addEventListener('click', function(evt) {
 
 }, false);
 */
-
+var createCirc = 1;
 
 canvas.addEventListener('mousemove', function(evt) {
 
@@ -183,14 +194,23 @@ canvas.addEventListener('mousemove', function(evt) {
         tempMouse = {x:null, y:null};
     }
 
-    mouseCircleArray.push({
-        centerX:evt.offsetX,
-        centerY:evt.offsetY,
-        radius:1,
-        lifetime:100
-    });
+    //var createCirc = Math.random();
 
-    draw(evt.offsetX, evt.offsetY);
+
+    if (createCirc == 15){//.1){
+        mouseCircleArray.push({
+            centerX:evt.offsetX,
+            centerY:evt.offsetY,
+            radius:1,
+            lifetime:50*Math.random(),
+            child: 1
+        });
+
+        draw(evt.offsetX, evt.offsetY);
+        createCirc = 1;
+    }
+
+    createCirc ++
 
 }, false);
 
