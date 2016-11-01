@@ -72,22 +72,6 @@ function updateArray(){
 }
 
 
-/*
-// Main loop
-function main(tframe) {
-    // Request animation frames - tells the browser to run this function before the browser refreshes.
-    //Removing this returns a static window
-    //lineArray.forEach(function(d){
-    window.requestAnimationFrame(main);
-
-    console.log('main');
-
-
-}*/
-
-
-
-
 
 //frame rate control from http://codetheory.in/controlling-the-frame-rate-with-requestanimationframe/
 //set up vars for controlling frame rate
@@ -138,47 +122,6 @@ function main() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-//This function listens for when the user clicks with the mouse. When they click, it saves the mouse coordinates
-//from http://jsfiddle.net/sierawski/4xezb7nL/
-function getMousePos(canvas, evt) {
-    var rect = canvas.getBoundingClientRect();  //get the size of the box the canvas is in (so that you can adjust the raw mouse coordinates)
-
-    //when the getMousePos function is called, it will hand back an object to whatever function called it
-    return {
-        //the object has parameters x and y, and they store the mouse coordinates (they need to be converted to the right pixel
-        //values for the canvas
-        x: (evt.clientX - rect.left) / (rect.right - rect.left) * canvas.width,
-        y: (evt.clientY - rect.top) / (rect.bottom - rect.top) * canvas.height
-    };
-}
-*/
-/*
-canvas.addEventListener('click', function(evt) {
-        var mousePos = getMousePos(canvas, evt);
-
-}, false);
-*/
-
-
 canvas.addEventListener('mousemove', function(evt) {
 
     //var mousePos = getMousePos(canvas, evt);
@@ -186,26 +129,9 @@ canvas.addEventListener('mousemove', function(evt) {
     if (evt.offsetX < width && evt.offsetY < height){
         tempMouse = {x:evt.offsetX, y:evt.offsetY};
 
-        /*drawingPad.fillStyle = "black";
-        drawingPad.beginPath();
-        drawingPad.arc(tempMouse.x, tempMouse.y, 100, 8*Math.PI/8, 12*Math.PI/8, false);
-        drawingPad.fill();*/
-
     }
     else {
         tempMouse = {x:null, y:null};
     }
 
 }, false);
-
-/*
-var draw = function(x,y){
-    drawingPad.fillRect(x,y,1,1);
-};
-
-var mouseMoveHandler = function(event){
-    draw(event.offsetX, event.offsetY)
-};
-
-canvas.addEventListener('mousemove',mouseMoveHandler);
-*/

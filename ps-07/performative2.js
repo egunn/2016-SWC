@@ -105,16 +105,6 @@ function main() {
         drawingPad.fillStyle = "hsla(0,0%,100%,1)";
         drawingPad.fillRect(0, 0, width, height);
 
-        /*
-        updateArray();
-
-        particleArray.forEach(function(d){
-            drawingPad.fillStyle = "hsl(0,0%," + (100-d.lifetime) + "% )";
-            drawingPad.beginPath();
-            drawingPad.arc(d.x, d.y, d.radius, 0, 2 * Math.PI, false);
-            drawingPad.fill();
-        });
-        */
 
         mouseCircleArray.forEach(function(d){
             if (d.radius > 25 && d.child < 3){
@@ -142,25 +132,6 @@ function main() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //This function listens for when the user clicks with the mouse. When they click, it saves the mouse coordinates
 //from http://jsfiddle.net/sierawski/4xezb7nL/
 function getMousePos(canvas, evt) {
@@ -175,12 +146,7 @@ function getMousePos(canvas, evt) {
     };
 }
 
-/*
-canvas.addEventListener('click', function(evt) {
-        var mousePos = getMousePos(canvas, evt);
 
-}, false);
-*/
 var createCirc = 1;
 
 canvas.addEventListener('mousemove', function(evt) {
@@ -193,8 +159,6 @@ canvas.addEventListener('mousemove', function(evt) {
     else {
         tempMouse = {x:null, y:null};
     }
-
-    //var createCirc = Math.random();
 
 
     if (createCirc == 15){//.1){
@@ -220,11 +184,3 @@ var draw = function(x,y){
     drawingPad.fillRect(x,y,1,1);
 
 };
-
-/*
-var mouseMoveHandler = function(event){
-    draw(event.offsetX, event.offsetY)
-};
-
-canvas.addEventListener('mousemove',mouseMoveHandler);
-*/
