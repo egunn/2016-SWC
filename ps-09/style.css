@@ -14,10 +14,11 @@
     src: local('Archivo'), local('Archivo'), url('./fonts/ArchivoBlack.otf') format('woff2');
 }
 
-body {
+
+body{
     font-family: "Open Sans", Arial, sans-serif;
     padding-left: 15px;
-    font-size: 10pt;
+    font-size:10pt;
     color: darkgray;
     display: flex;
     flex-direction: column;
@@ -46,76 +47,76 @@ strong {
     letter-spacing: 2px;
     font-weight: lighter;
     word-spacing: 4px;
-    text-align: center;
+    text-align:center;
 
 }
 
-a {
-    color: darkgray;
+a{
+    color:darkgray;
     line-height: 1.75em;
 }
 
-h2 {
-    margin: 0px;
-    padding-top: 20px;
+h2{
+    margin:0px;
+    padding-top:20px;
 }
 
 canvas {
-    border: 1px solid hsl(0, 10%, 90%);
-    width: auto;
-    height: 100%;
+    border: 1px solid hsl(0,10%,90%);
+    width:auto;
+    height:100%;
 }
 
 input {
-    border: 1px solid hsl(0, 10%, 90%);
+    border: 1px solid hsl(0,10%,90%);
 }
 
 .jscolor {
-    width: 60px;
+    width:60px;
     padding-left: 10px;
     border-radius: 10px;
     margin-top: 3px;
 }
 
-.buttondiv {
+.buttondiv{
     display: flex;
     flex-direction: row;
 }
 
 button {
     background-color: white; /* Green */
-    border: 1px solid hsl(0, 10%, 90%);
+    border: 1px solid hsl(0,10%,90%);
     color: darkgray;
     padding: 6px 12px;
     text-align: center;
     text-decoration: none;
     font-size: 12px;
-    border-radius: 8px;
-    margin: 3px;
+    border-radius:8px;
+    margin:3px;
 }
 
 /*following example at http://jsfiddle.net/sncb91t8/*/
-.links {
-    color: darkgray;
+.links{
+    color:darkgray;
     list-style: none;
-    margin: 0px;
-    padding-top: 15px;
-    padding-bottom: 5px;
+    margin:0px;
+    padding-top:15px;
+    padding-bottom:5px;
 }
 
 .fplinks {
-    text-align: center;
+    text-align:center;
     list-style: none;
     padding: 0px;
-    margin: 0px;
-    padding-bottom: 175px;
+    margin:0px;
+    padding-bottom:175px;
 }
 
-.links li {
-    position: relative;
-    display: inline-block;
-    list-style-type: none;
-    padding: 0 4px;
+.links li{
+    position:relative;
+    display:inline-block;
+    list-style-type:none;
+    padding:0 4px;
 }
 
 .links li > a {
@@ -124,48 +125,52 @@ button {
 }
 
 .anchor {
-    display: block;
-    clear: both;
+    display:block;
+    clear:both;
     height: 450px;
     /*background:lightgrey;*/
-    border: 1px;
-    border-left: 5px;
-    border-style: solid;
+    border:1px;
+    border-left:5px;
+    border-style:solid;
     border-color: lightgrey;
-    border-radius: 10px;
+    border-radius:10px;
     margin-top: 5px;
 }
 
-.profile-text {
-    display: block;
-    position: relative;
-    float: left;
-    padding-top: 290px;
+
+.profile-text{
+    display:block;
+    position:relative;
+    float:left;
+    padding-top:290px;
 }
 
-.link2 {
-    display: block;
-    text-align: center;
+
+.link2{
+    display:block;
+    text-align:center;
 }
 
-ul {
-    padding-left: 5px;
+ul{
+    padding-left:5px;
 }
 
 .rangespan {
-    color: darkgray;
+    color:darkgray;
 }
 
+
 .colorBox {
-    color: darkgray;
+    color:darkgray;
 }
+
 
 .slider {
     width: 150px;
     height: 17px;
     position: relative;
     margin-top: 25px;
-    margin-bottom: 6px;
+    margin-bottom:6px;
     background: lightgray;
 
     -webkit-border-radius: 20px;
@@ -201,6 +206,7 @@ ul {
     background: rgba(255, 255, 255, 0.25);
 }
 
+
 input[type="range"] {
     -webkit-appearance: none;
     background-color: gainsboro;
@@ -212,12 +218,12 @@ input[type="range"]::-webkit-slider-thumb {
     position: relative;
     top: 0px;
     z-index: 1;
-    width: 10px;
-    height: 20px;
+    width: 5px;
+    height: 10px;
     cursor: pointer;
 
     -webkit-border-radius: 20px;
     -moz-border-radius: 20px;
     border-radius: 20px;
-    background-color: gainsboro;
+    background-color:gainsboro;
 }
