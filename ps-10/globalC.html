@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>SWC</title>
+
+    <link rel="stylesheet" href="/vendor/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="cStyle.css">
+
+</head>
+
+<body>
+
+
+<div class="container-fluid">
+    <div class="row">
+        <!-- heading row, if I decide to put it back -->
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="row">
+                <!-- global C bar chart -->
+                <div class="col-md-9" id="cBars">
+                    <div class="row">
+                        <div id="cBarChart"></div>
+                    </div>
+                </div>
+
+                <!-- sidebar text -->
+                <div class="col-md-3">
+                    <div class="row fixed-height">
+                        <p class="sidebar">sidebar text</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+
+<script src="/vendor/d3.v4.2.6.min.js"></script>
+<script src="./globalC.js"></script>
+
+</html>

@@ -1,0 +1,236 @@
+/* latin */
+@font-face {
+    font-family: 'Open Sans';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Open Sans'), local('OpenSans'), url('./fonts/OpenSans-Regular.ttf') format('woff2');
+    unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215, U+E0FF, U+EFFD, U+F000;
+}
+
+@font-face {
+    font-family: 'Archivo';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Archivo'), local('Archivo'), url('./fonts/ArchivoBlack.otf') format('woff2');
+}
+
+
+body{
+    font-family: "Open Sans", Arial, sans-serif;
+    padding-left: 15px;
+    font-size:10pt;
+    color: darkgray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    /*flex-wrap:wrap;*/
+    /*position: fixed;*/
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    overflow: auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+strong {
+    color: darkslategrey;
+    text-transform: uppercase;
+    font-family: "Open Sans", Arial, sans-serif;
+    margin-top: 1.5em;
+    margin-bottom: 0em;
+    letter-spacing: 2px;
+    font-weight: lighter;
+    word-spacing: 4px;
+    text-align:center;
+
+}
+
+a{
+    color:darkgray;
+    line-height: 1.75em;
+}
+
+h2{
+    margin:0px;
+    padding-top:20px;
+}
+
+canvas {
+    border: 1px solid hsl(0,10%,90%);
+    width:auto;
+    height:100%;
+}
+
+input {
+    border: 1px solid hsl(0,10%,90%);
+}
+
+.jscolor {
+    width:60px;
+    padding-left: 10px;
+    border-radius: 10px;
+    margin-top: 3px;
+}
+
+.buttondiv{
+    display: flex;
+    flex-direction: row;
+}
+
+button {
+    background-color: white; /* Green */
+    border: 1px solid hsl(0,10%,90%);
+    color: darkgray;
+    padding: 6px 12px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    border-radius:8px;
+    margin:3px;
+}
+
+/*following example at http://jsfiddle.net/sncb91t8/*/
+.links{
+    color:darkgray;
+    list-style: none;
+    margin:0px;
+    padding-top:15px;
+    padding-bottom:5px;
+}
+
+.fplinks {
+    text-align:center;
+    list-style: none;
+    padding: 0px;
+    margin:0px;
+    padding-bottom:175px;
+}
+
+.links li{
+    position:relative;
+    display:inline-block;
+    list-style-type:none;
+    padding:0 4px;
+}
+
+.links li > a {
+    position: relative;
+    display: block;
+}
+
+.anchor {
+    display:block;
+    clear:both;
+    height: 450px;
+    /*background:lightgrey;*/
+    border:1px;
+    border-left:5px;
+    border-style:solid;
+    border-color: lightgrey;
+    border-radius:10px;
+    margin-top: 5px;
+}
+
+
+.profile-text{
+    display:block;
+    position:relative;
+    float:left;
+    padding-top:290px;
+}
+
+
+.link2{
+    display:block;
+    text-align:center;
+}
+
+ul{
+    padding-left:5px;
+}
+
+.rangespan {
+    color:darkgray;
+}
+
+
+.colorBox {
+    color:darkgray;
+}
+
+
+.slider {
+    width: 150px;
+    height: 17px;
+    position: relative;
+    margin-top: 25px;
+    margin-bottom:6px;
+    background: lightgray;
+
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+
+}
+
+.slider .bar {
+    width: 386px;
+    height: 5px;
+    background: lightslategrey;
+    position: absolute;
+    top: 6px;
+    left: 8px;
+
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+}
+
+.slider .highlight {
+    height: 2px;
+    position: absolute;
+    width: 388px;
+    top: 6px;
+    left: 6px;
+
+    -webkit-border-radius: 40px;
+    -moz-border-radius: 40px;
+    border-radius: 40px;
+
+    background: rgba(255, 255, 255, 0.25);
+}
+
+
+input[type="range"] {
+    -webkit-appearance: none;
+    background-color: gainsboro;
+    height: 2px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    position: relative;
+    top: 0px;
+    z-index: 1;
+    width: 5px;
+    height: 10px;
+    cursor: pointer;
+
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    background-color:gainsboro;
+}
+
+
+
+circle {
+    fill: red;
+    stroke: black;
+}
