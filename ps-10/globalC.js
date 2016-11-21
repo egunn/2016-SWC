@@ -1,11 +1,13 @@
 //setup page and global variables
 //set some margins and record width and height of window
-margin = {t: 25, r: 0, b: 25, l: 50};
+margin = {t: 15, r: 0, b: 25, l: 50};
 
 width = document.getElementById('cBarChart').clientWidth - margin.r - margin.l;
-height = 400; //document.getElementById('cBarChart').clientHeight - margin.t - margin.b;
+height = 500; //document.getElementById('cBarChart').clientHeight - margin.t - margin.b;
 
 console.log(width, height);
+
+music = document.getElementById('music').play();
 
 carbonPlot = d3.select("#cBarChart")
     .append('svg')
@@ -23,7 +25,7 @@ data = [
 
 pieData = [
     {id:"SOC",slice:"soil organic carbon",value:1550},
-    {id:"Carbonate",slice:"carbonate minerals in the soil",value:950},
+    {id:"Carbonate",slice:"minerals",value:950},
     {id:"leaf",slice:"leaf litter",value:80},
     {id:"peat",slice:"peat",value:150}
 ];
@@ -40,19 +42,21 @@ var y = d3.scaleLinear().rangeRound([chartLoc.ytop, chartLoc.xheight]).domain([d
 }),0]);
 
 
+
 //group to plot bars in
 barGroup = carbonPlot.append('g')
     .attr('class','bar-group')
-    .attr('transform','translate('+ margin.l + ',40)');
+    .attr('transform','translate('+ margin.l + ','+ (40+margin.t) + ')');
 
 pieChart = carbonPlot.append('g')
     .attr('class','pie-group')
-    .attr('transform','translate(' + (x('Soil')+ 80) + ',' + height/2 + ')');
+    .attr('transform','translate(' + (x('Soil')+ (x.bandwidth()/2) + 45) + ',' + (height/2 +margin.t) + ')');
+
 
 var narrative = carbonPlot
     .append('text')
     .attr('x',width/2)
-    .attr('y',100)
+    .attr('y',(55+margin.t))
     .attr('fill','lightgray')
     .attr('fill-opacity',1)
     .attr('font-size', '75px')
@@ -62,7 +66,7 @@ var narrative = carbonPlot
 narrative
     //carbon appear, and then fade
     .transition()
-    .duration(2000)
+    .duration(8000)
     .attr('fill-opacity',0)
 
     //change the font size
@@ -77,7 +81,7 @@ narrative
     .text('It\'s a huge player in climate change.')
 
     //set the opacity back to 1, to fade in
-    .duration(2000)
+    .duration(3000)
     .attr('fill-opacity',1)
 
     //fade out the text again
@@ -88,12 +92,18 @@ narrative
     //replace the text value
     .transition()
     .delay(500)
-    .text('Most of the world\'s carbon is stored in the oceans.')
+    .on('end', function(){
+        var text = d3.select(this);
+        wrap(text, 'Most of the world\'s carbon is stored in the oceans.', width/2-50)
+    })
+    //.call(wrap, 'Most of the world\'s carbon is stored in the oceans.', 30)
+    //.text('Most of the world\'s carbon is stored in the oceans.')
 
     .transition()
+    .delay(500)  //need to add a delay to allow the wrap function to finish before the transition runs
     .attr('font-size', '24px')
     //fade back in
-    .duration(2000)
+    .duration(3000)
     .attr('fill-opacity',1)
 
     .transition()
@@ -106,7 +116,7 @@ narrative
 
     //fade out the text again
     .transition()
-    .duration(2000)
+    .duration(3000)
     .attr('fill-opacity',0)
 
     //replace the text value
@@ -118,29 +128,32 @@ narrative
     })
 
     //fade back in
-    .duration(2000)
+    .duration(3000)
     .attr('fill-opacity',1)
 
     //fade out the text again
     .transition()
-    .duration(2000)
+    .duration(1000)
     .attr('fill-opacity',0)
 
     //replace the text value
     .transition()
     .delay(500)
-    .text('Coal, oil, and gas reserves contain about 5x as much carbon')
-    .on("end",function(){
+    .on('end', function(){
+        var text = d3.select(this);
+        wrap(text, 'Coal, oil, and gas reserves contain about 5x as much carbon', width/2-50);
         easeBar('oil');
     })
 
     //fade back in
-    .duration(2000)
+    .transition()
+    .delay(1000)  //need to add a delay to allow the wrap function to finish before the transition runs
+    .duration(4000)
     .attr('fill-opacity',1)
 
     //fade out the text again
     .transition()
-    .duration(2000)
+    .duration(1500)
     .attr('fill-opacity',0)
 
     //replace the text value
@@ -152,24 +165,63 @@ narrative
     })
 
     //fade back in
-    .duration(2000)
+    .duration(3000)
     .attr('fill-opacity',1)
 
     //fade out the text again
     .transition()
-    .duration(2000)
+    .duration(1500)
     .attr('fill-opacity',0)
 
     //replace the text value
     .transition()
-    .delay(500)
-    .text('After fossil fuels, soil stores the most carbon on earth')
+    .delay(2500)
+    .text('After fossil fuels, soil stores the most carbon on land')
     .on("end",function(){
         easeBar('soil');
     })
 
     //fade back in
-    .duration(2000)
+    .duration(3000)
+    .attr('fill-opacity',1)
+
+    //fade out the text again
+    .transition()
+    .duration(1000)
+    .attr('fill-opacity',0)
+
+    //replace the text value
+    .transition()
+    .delay(1000)
+    .text('Several different forms of carbon are present in healthy soil')
+    .on("end",function(){
+        d3.selectAll('#soil').attr('fill','brown')
+            .on('end',drawPie());
+    })
+
+    //fade back in
+    .duration(4000)
+    .attr('fill-opacity',1)
+
+    //fade out the text again
+    .transition()
+    .duration(1000)
+    .attr('fill-opacity',0)
+
+    //replace the text value
+    .transition()
+    .delay(1000)
+    .on("end",function(){
+        var text = d3.select(this);
+        wrap(text, 'Increasing soil organic carbon (humus) is the best way to improve soil carbon storage', width/2);
+        d3.selectAll('#soil').attr('fill','brown');
+        drawPie();
+    })
+
+    //fade back in
+    .transition()
+    .delay(1000)
+    .duration(3000)
     .attr('fill-opacity',1);
 
 
@@ -190,6 +242,7 @@ xAxis
     .attr('fill','gray')
     .style("text-anchor", "middle");
 
+    /*
 var yAxis = barGroup.append("g")
     .attr("class", "axis axis--y")
     .call(d3.axisLeft(y)
@@ -198,7 +251,7 @@ var yAxis = barGroup.append("g")
 
 yAxis.selectAll('text')
     .attr('fill',"gray");
-
+     */
 /*
 barGroup.append('text')
     .attr('x', width/2-15)
@@ -209,15 +262,13 @@ barGroup.append('text')
     .text('Distribution of carbon in the soil');
     */
 
-barGroup.append('text')
-    .attr('class', 'bar-label')
-    .attr('fill',"gray")
-    .style('font-size', 12);
 
-barGroup
+var bars = barGroup
     .selectAll('bar')
     .data(data)
-    .enter()
+    .enter();
+
+bars
     .append("rect")
     .attr("class", "bar")
     .attr('id', function(d){
@@ -230,6 +281,14 @@ barGroup
     .attr("width", x.bandwidth())
     .attr("height", 0)
     .attr('fill', '#74a063');
+
+bars.append('text')
+    .attr('class', 'bar-label')
+    .attr('id',function(d){
+        return "label-" + d.id
+    })
+    .attr('fill',"gray")
+    .style('font-size', 12);
 
 }
 
@@ -248,15 +307,24 @@ function easeBar(className) {
         .attr("height", function (d) {
             return chartLoc.xheight - y(d.value); //y(ease(d.value));
         })
-        .on('end', function(){
+        .on('end', function(d){
+
+            barGroup.selectAll('#' + "label-" + className)
+                .style('text-anchor','middle')
+                .attr('x',(x(d.class)) + (x.bandwidth()/2)) //x.bandwidth()
+                .attr('y',(y(d.value)-7))
+                .text(d.value.toLocaleString());
+/*
             if (className == "soil"){
-                d3.selectAll('#soil').attr('fill','brown');
-            }
+
+            }*/
         })
+
+
+
 
 }
 
-drawPie();
 
 //from https://bl.ocks.org/mbostock/3887235
 function drawPie(){
@@ -283,13 +351,47 @@ function drawPie(){
         .attr("class", "arc");
 
     g.append("path")
-        .attr("d", arc)
-        .style("fill", function(d) {console.log(d); return color(d.data.id); });
+        .style("fill", function(d) {return color(d.data.id); })
+        .transition()
+        .duration(1000)
+        .attrTween("d", tweenPie);
+        //.attr("d", arc);
 
     g.append("text")
         .attr("transform", function(d) { return "translate(" + labelArc.centroid(d) + ")"; })
-        .attr("dy", ".35em")
-        .text(function(d) { return d.data.slice; });
+        .attr("dx", function(d){
+            if(d.data.slice == "peat"){
+                return '.25em';
+            }
+            else if (d.startAngle > Math.PI){
+                return '-.5em';
+            }
+            else{
+                return '.5em';
+            }
+        })
+        .attr('dy', function(d){
+            if (d.data.slice == 'peat'){
+                return '-.5em';
+            }
+        })
+        .style('text-anchor', function(d){
+            if (d.startAngle > Math.PI){
+                return 'end';
+            }
+            else{
+                return 'start';
+            }
+        })
+        .attr('fill','gray')
+        .text(function(d) {console.log(d); return d.data.slice; });
+
+    //from http://bl.ocks.org/mbostock/4341574
+    function tweenPie(b) {
+        b.innerRadius = 0;
+        var i = d3.interpolate({startAngle: 0, endAngle: 0}, b);
+        return function(t) { return arc(i(t)); };
+    }
 
 }
 
@@ -309,3 +411,39 @@ var t = d3.timer(
     }
     , 150); //sets the delay?
     */
+
+
+//from http://stackoverflow.com/questions/24784302/wrapping-text-in-d3
+function wrap(text, wordList, width) {
+    text.each(function () {
+        var text = d3.select(this),
+            words = wordList.split(/\s+/).reverse(),
+            word,
+            line = [],
+            lineNumber = 0,
+            lineHeight = 1.3, // ems
+            x = text.attr("x"),
+            y = text.attr("y"),
+            dy = 0, //parseFloat(text.attr("dy")),
+            tspan = text.text(null)
+                .append("tspan")
+                .attr("x", x)
+                .attr("y", y)
+                .attr("dy", dy + "em");
+        while (word = words.pop()) {
+            line.push(word);
+            tspan.text(line.join(" "));
+            if (tspan.node().getComputedTextLength() > width) {
+                line.pop();
+                tspan.text(line.join(" "));
+                line = [word];
+                tspan = text.append("tspan")
+                    .attr("x", x)
+                    .attr("y", y)
+                    .attr("dy", ++lineNumber * lineHeight + dy + "em")
+                    .text(word);
+            }
+        }
+    });
+}
+
