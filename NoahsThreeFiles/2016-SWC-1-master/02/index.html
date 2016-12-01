@@ -1,0 +1,215 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Sketching With Code 2016</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../img/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="mask-icon" href="../img/safari-pinned-tab.svg" color="#5bbad5">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../css/normalize.min.css">
+    <link rel="stylesheet" href="../css/boilerplate.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/vendor/jquery.min.js"></script>
+    <script src="../js/solutions.js"></script>
+</head>
+
+<body>
+    <div class="fixed-width">
+        <h1 id="class-02-2016-09-20-git-html-and-css-">Class 02 – 2016-09-20: Git, HTML, and CSS.</h1>
+<h2 id="new-problem-set-ps-02-ps-02-html-">New problem set <a href="ps-02.html">ps-02</a></h2>
+<h2 id="omissions-from-last-week-">Omissions from last week:</h2>
+<ul>
+<li>The importance of making interesting mistakes.</li>
+<li>If you are not making mistakes your not learning.</li>
+<li>Minimalist first. No frameworks for now.</li>
+<li>About grading …</li>
+<li>Openness and working in public &amp; on github …</li>
+<li>Browser caching (!) (dev tools)</li>
+<li>People still need to register? Tell me QUICK!</li>
+<li>Many folks need help configuring github pages.</li>
+</ul>
+<h2 id="check-on-reading-">Check on reading:</h2>
+<ul>
+<li>Summarize &#39;How To Survive A Critique&#39;?</li>
+<li>Summarize &#39;Social Rules for Learning&#39;?</li>
+<li>Tell me about &#39;well actually …&#39;?</li>
+<li>Tell me what <code>git pull</code> does?</li>
+<li>What do we think of Daniel Shiffman?</li>
+<li>How are we feeling about git?</li>
+</ul>
+<h2 id="questions-and-review-problem-set-">Questions and review problem set:</h2>
+<ul>
+<li><a href="../01/ps01.html">ps-01</a></li>
+<li>Missing from the assignments list? slack me your deets!</li>
+</ul>
+<h2 id="git-wrapup-">Git wrapup:</h2>
+<ul>
+<li>Did anyone make a few repositories?</li>
+<li>Did anyone make multiple commits?</li>
+<li>Did anyone experiment with making branches?</li>
+</ul>
+<h3 id="critical-git-concepts-terms-">Critical git concepts &amp; terms:</h3>
+<ul>
+<li>Git is a source control tool.</li>
+<li>Git saves versions of your project.</li>
+<li>Use <code>git commit</code> to make changes part of the permanent record.</li>
+<li>Use <code>git status</code> to see if you have &#39;dirty&#39; files.</li>
+<li>Use <code>git log</code> to review your history.</li>
+<li>Git can be used to <code>push</code> or <code>pull</code> changes from remote locations. (like github)</li>
+<li>Pictures and demo from github desktop client.</li>
+<li>Alternate git client: <a href="https://www.sourcetreeapp.com/">source tree</a></li>
+</ul>
+<h3 id="more-git-concepts-ideas-">More git concepts &amp; ideas:</h3>
+<ul>
+<li>historic versions of your project have a <code>sha1</code> label.</li>
+<li>You can ignore some files. such as &#39;.DS_Store&#39;<ul>
+<li>lets try removing it from github, and then ignoreing it.</li>
+</ul>
+</li>
+<li>you can use <code>git ceckout &lt;sha1&gt;</code> to time-travel to specific commits.</li>
+<li>you can use <code>git checkout -b</code> to create a new branch.</li>
+<li>you can include change from one branch into another using <code>git merge</code></li>
+<li>pictures and demo</li>
+</ul>
+<h3 id="git-magic-">Git magic:</h3>
+<ul>
+<li><code>git rebase &lt;commit&gt;</code></li>
+<li><code>git reset &lt;commit&gt;</code></li>
+</ul>
+<h3 id="where-to-go-for-help-">Where to go for help:</h3>
+<ul>
+<li><a href="http://stackoverflow.com/">stack overflow</a></li>
+<li><a href="https://2016-swc.slack.com/messages/general/">slack</a></li>
+<li>google</li>
+</ul>
+<h3 id="static-site-hosting-">Static site hosting:</h3>
+<p>We can easily deploy static websites using github pages. There are other free / easy web publishing platforms too:</p>
+<ul>
+<li>Dropbox.</li>
+<li><a href="https://www.bitballoon.com">BitBalloon</a> (drag and drop)</li>
+<li><a href="https://surge.sh/">Surge</a> (node)</li>
+<li><a href="https://www.figroll.io/">Figroll</a></li>
+<li>Heroku, Firebase, &amp;etc. </li>
+</ul>
+<h3 id="the-web-html-and-css-">The web: HTML and CSS:</h3>
+<ul>
+<li>WE CANT DO THIS. ITS TOO MUCH.</li>
+<li>Ommission of JavaScript</li>
+<li>Copy and paste</li>
+<li>Open <a href="https://knowuh.github.io/2016-SWC/">a page in Chrome</a>.  <ul>
+<li>View Source.</li>
+<li>Copy and paste made the web explode.</li>
+<li>Echos of DIY zine culture.</li>
+<li>View developer tools.</li>
+</ul>
+</li>
+<li>Quick history (slides).</li>
+<li>HTML Documentation from the Mozilla Developer Network<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML">Mozilla guide HTML</a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Introduction">introduction</a></li>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Reference">reference</a></li>
+</ul>
+</li>
+</ul>
+<h4 id="a-sample-document">A sample document</h4>
+<pre><code class="lang-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;title&lt;/title&gt;
+    &lt;meta name=&quot;author&quot; content=&quot;name&quot;&gt;
+    &lt;meta name=&quot;description&quot; content=&quot;description here&quot;&gt;
+    &lt;meta name=&quot;keywords&quot; content=&quot;keywords,here&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;path/to/stylesheet.css&quot; type=&quot;text/css&quot;&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;path/to/script1.js&quot; defer&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;img src=&quot;../img/favicon-32x32.png&quot; alt=&quot;favicon&quot; /&gt;
+    &lt;h1&gt; This is a heading &lt;/h1&gt;
+    &lt;div class=&#39;main-content&#39; id=&#39;body1&#39;&gt;
+      &lt;p class=&#39;lead&#39;&gt; First paragraph. &lt;/p&gt;
+    &lt;/div&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<ul>
+<li>Experiment with the &#39;fault tolerant&#39; nature of HTML.</li>
+<li>Use <a href="https://validator.w3.org/">HTML Validator</a>.</li>
+<li>Check with the browser.</li>
+<li>Q: Whats the problem with this?  Why does HTML suck?</li>
+</ul>
+<h3 id="html-tags-and-the-dom-">HTML Tags and the DOM.</h3>
+<p>Related reading and notes from <a href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics">MDN</a></p>
+<ul>
+<li>Anatomy of a Tag</li>
+<li>Tags without children</li>
+<li>Tags with children</li>
+</ul>
+<h3 id="css">CSS</h3>
+<p>Related reading and notes from
+<a href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/CSS_basics">MDN</a>. See also  <a href="http://codepen.io/">Code Pen</a></p>
+<ul>
+<li>Anatomy of CSS Rule Set.</li>
+<li>CSS selection of DOM Elements.</li>
+<li>Basic CSS styles.<ul>
+<li>fonts &amp; text</li>
+<li>borders</li>
+<li>colors</li>
+<li>margins</li>
+<li>backgrounds</li>
+</ul>
+</li>
+<li>Position and display<ul>
+<li>Absolute and relative positioning</li>
+<li>floating</li>
+<li>blocks vs. inline</li>
+<li>flexbox (!) -- see <a href="http://flexboxin5.com/">flexbox in 5</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="online-css-tools-resources-">Online CSS Tools &amp; resources:</h3>
+<ul>
+<li>CSS <a href="https://jigsaw.w3.org/css-validator/">validator</a></li>
+</ul>
+<h2 id="tools-to-install">Tools to install</h2>
+<ul>
+<li>install <a href="https://www.google.com/chrome/browser/desktop/">chrome</a></li>
+<li>install <a href="https://atom.io/">atom</a></li>
+</ul>
+<h3 id="atom-packages-to-install-">Atom packages to install:</h3>
+<h4 id="required">Required</h4>
+<ul>
+<li>atom-live-server</li>
+<li>linter</li>
+<li>linter-jshint</li>
+</ul>
+<h4 id="recommended">Recommended</h4>
+<ul>
+<li>emmet</li>
+<li>pretty-json</li>
+<li>linter-jsonlint</li>
+<li>pretty-json</li>
+<li>jade</li>
+</ul>
+<h5 id="stretch-">Stretch:</h5>
+<ul>
+<li>Find other plugins that help with CSS / HTML, present them to class next week, but contact me first so I can schedule it.  HTML / CSS compilers / pre-processors.</li>
+</ul>
+<h5 id="lets-build-a-web-page-">Lets Build a web page.</h5>
+<ul>
+<li><a href="./sample.html">sample</a> <a href="view">source</a> </li>
+</ul>
+
+        <div id="dynamic-content"></div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,115 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Sketching With Code 2016</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../img/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="mask-icon" href="../img/safari-pinned-tab.svg" color="#5bbad5">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../css/normalize.min.css">
+    <link rel="stylesheet" href="../css/boilerplate.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/vendor/jquery.min.js"></script>
+    <script src="../js/solutions.js"></script>
+</head>
+
+<body>
+    <div class="fixed-width">
+        <h2 id="problem-set-03-">Problem Set 03:</h2>
+<p><strong>Due 10-04 (7 days)</strong></p>
+<h3 id="reading-">Reading:</h3>
+<ul>
+<li><a href="http://eloquentjavascript.net/01_values.html">Eloquent JavaScript 1 (types)</a></li>
+<li><a href="http://eloquentjavascript.net/02_program_structure.html">Eloquent JavaScript 2 (structure)</a></li>
+</ul>
+<h3 id="optional-reading-reference-">Optional Reading &amp; Reference:</h3>
+<ul>
+<li>Read the <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout">MDN CSS Layout guide</a></li>
+<li>Learn about <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox">Flexbox</a> layout. from MDN.</li>
+</ul>
+<h3 id="ps-03">ps-03</h3>
+<ul>
+<li><code>2016-SWC/ps-03/index.html</code>.<ul>
+<li>Include your name, the date, and the problem set number (<code>ps-03</code>).</li>
+<li>Include links to <strong>each</strong> of the exercises below.</li>
+<li>Style this index page using CSS.</li>
+<li>15 points.</li>
+</ul>
+</li>
+</ul>
+<h4 id="a-square-composition-ii-">a – &#39;Square composition II&#39;:</h4>
+<ul>
+<li>Copy the source of <a href="ps-03-starter.html"><code>ps-03-starter.html</code></a> to your <code>2016-SWC/ps-03/</code> folder called &#39;squares.html&#39;</li>
+<li>Create a simple composition of squares by changing the inline javascript.</li>
+<li>Clean up the HTML by putting moving the inline CSS into an external file <code>squares.css</code> using a <code>&lt;link rel=&quot;stylesheet&quot; href= …</code> tag.</li>
+<li>Bonus: clean up the HTML by moving the inline JavaScript into an external file called <code>squares.js</code>. By placing a <code>&lt;script type=&quot;text/javascript&quot; src=&quot;squares.js&quot; …</code> tag sometime after the <code>canvas</code> tag. This can be tricky.</li>
+</ul>
+<h4 id="b-optional-revisit-ps-02-">b (optional) – Revisit ps-02:</h4>
+<p>Modify the HTML or CSS from any of your ps-02 solutions to improve layout &amp; styling.</p>
+<h4 id="c-stretch-sol-lowitt-canvas-">c (stretch) – Sol LoWitt Canvas:</h4>
+<p>To complete item &#39;c&#39; here, you may want to review the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API">MDN Canvas API</a></p>
+<ul>
+<li>Find instructions for a Sol LoWitt Wall drawing online.</li>
+<li>Copy and modify <code>ps-03-starter.html</code> to a new file.</li>
+<li>Extract the JS and CSS into their own files.</li>
+<li>Modify the HTML and CSS to include the instructions for the wall drawing you found.</li>
+<li>Provide a solution to the wall by drawing in the <code>canvas</code> object.</li>
+<li>Bonus: provide a reference image of an actual wall that was installed with this drawing.</li>
+</ul>
+<h3 id="source-of-ps-03-starter-">Source of ps-03 starter:</h3>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;canvas starter document&lt;/title&gt;
+    &lt;style media=&quot;screen&quot;&gt;
+      body {
+        font-family: &#39;helvetica&#39;, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+      }
+      canvas {
+        border: 1px solid hsl(0,10%,90%);
+        width: auto;
+        height: 50%;
+      }
+    &lt;/style&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;
+    &lt;canvas id=&quot;canvas&quot; width=&quot;500&quot; height=&quot;500&quot;&gt;&lt;/canvas&gt;
+  &lt;/body&gt;
+
+  &lt;script type=&quot;text/javascript&quot;&gt;
+    var canvas = document.getElementById(&#39;canvas&#39;);
+    var drawingPad = canvas.getContext(&#39;2d&#39;);
+    drawingPad.fillStyle = &quot;hsla(0,10%,10%,1)&quot;;
+    drawingPad.fillRect(0, 0, 20, 20);
+  &lt;/script&gt;
+
+&lt;/html&gt;
+</code></pre><script>
+$(document).ready(function () {
+   solutions("ps-03");
+});
+</script>
+
+        <div id="dynamic-content"></div>
+    </div>
+</body>
+
+</html>

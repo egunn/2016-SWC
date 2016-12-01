@@ -1,0 +1,120 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Sketching With Code 2016</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" sizes="180x180" href="../img/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="../img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="../img/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="../manifest.json">
+    <link rel="mask-icon" href="../img/safari-pinned-tab.svg" color="#5bbad5">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="../css/normalize.min.css">
+    <link rel="stylesheet" href="../css/boilerplate.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <script src="../js/vendor/jquery.min.js"></script>
+    <script src="../js/solutions.js"></script>
+</head>
+
+<body>
+    <div class="fixed-width">
+        <h2 id="problem-set-04-">Problem Set 04:</h2>
+<p><strong>Due 10-11 (7 days)</strong></p>
+<h3 id="reading-">Reading:</h3>
+<ul>
+<li><a href="http://eloquentjavascript.net/03_functions.html">Eloquent JavaScript 3 (functions)</a></li>
+</ul>
+<h3 id="reference-">Reference:</h3>
+<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Basic_usage">MDN Canvas Reference</a></li>
+<li><a href="../03/ps-03-starter.html">Our starter html</a></li>
+</ul>
+<h3 id="ps-04">ps-04</h3>
+<p>The purpose of this weeks problem set is to get familiar with drawing with the Canvas. Also to practice working variables, loops and control structures.</p>
+<ul>
+<li><code>2016-SWC/ps-04/index.html</code>.<ul>
+<li>Include your name, the date, and the problem set number (<code>ps-04</code>).</li>
+<li>Include links to <strong>each</strong> of the exercises below.</li>
+<li>Style this index page using CSS.</li>
+<li>15 points.</li>
+</ul>
+</li>
+</ul>
+<h4 id="b-broken-grid-">b – &#39;broken grid&#39;:</h4>
+<ul>
+<li>Create a <em>greyscale</em> composition using HTML and JavasScript Canvas that explores the concept of a &#39;grid&#39;. Grids are by definition regular, repetitive, dull, and inert. Add interest by violating the grid in unexpected ways.  </li>
+<li>Your CSS, HTML, and JavaScript should be in separate files.</li>
+<li>If you are compelled by this assignment or make interesting discoveries provide links to up to 3 additional grid variations.</li>
+</ul>
+<h4 id="b-33-non-intersecting-lines-">b – &#39;33 non-intersecting lines&#39;</h4>
+<ul>
+<li>Create a <em>greyscale</em> composition using HTML and JavasScript using <em>exactly</em> 33 non-intersecting line segments. </li>
+<li>Your CSS, HTML, and JavaScript should be in separate files.</li>
+<li>Stretch: also make a composition 333 non-intersecting lines.</li>
+</ul>
+<h4 id="c-333-connected-lines-">c – &#39;333 connected lines&#39;</h4>
+<ul>
+<li>Create a greyscale composition using HTML and JavasScript using exactly <em>333</em> lines. The lines should be connected end-to end. Lines may intersect or not as you see fit. </li>
+<li>Your CSS, HTML, and JavaScript should be in separate files.</li>
+<li>Stretch: also make a composition of 3333 non-intersecting lines.</li>
+</ul>
+<h4 id="c-stretch-sketches-rules-sketches-">c (stretch) – &#39;Sketches → rules → Sketches&#39;:</h4>
+<ul>
+<li>Create several geometric sketches on paper using a pencil or pen.</li>
+<li>Attempt to write the &#39;rules&#39; that guided each sketch in english.</li>
+<li>Pick one sketch-rule and attempt to render it using canvas &amp; JavaScript.</li>
+</ul>
+<h3 id="source-of-ps-03-starter-">Source of ps-03 starter:</h3>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;canvas starter document&lt;/title&gt;
+    &lt;style media=&quot;screen&quot;&gt;
+      body {
+        font-family: &#39;helvetica&#39;, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+      }
+      canvas {
+        border: 1px solid hsl(0,10%,90%);
+        width: auto;
+        height: 50%;
+      }
+    &lt;/style&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;
+    &lt;canvas id=&quot;canvas&quot; width=&quot;500&quot; height=&quot;500&quot;&gt;&lt;/canvas&gt;
+  &lt;/body&gt;
+
+  &lt;script type=&quot;text/javascript&quot;&gt;
+    var canvas = document.getElementById(&#39;canvas&#39;);
+    var drawingPad = canvas.getContext(&#39;2d&#39;);
+    drawingPad.fillStyle = &quot;hsla(0,10%,10%,1)&quot;;
+    drawingPad.fillRect(0, 0, 20, 20);
+  &lt;/script&gt;
+
+&lt;/html&gt;
+</code></pre><script>
+$(document).ready(function () {
+   solutions("ps-04");
+});
+</script>
+
+        <div id="dynamic-content"></div>
+    </div>
+</body>
+
+</html>

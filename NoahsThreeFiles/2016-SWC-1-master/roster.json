@@ -1,0 +1,84 @@
+
+[
+  {
+  "slack": "evancheng",
+  "husky": "cheng.ai",
+  "name": "Evan Cheng",
+  "github": "Evan2210"
+},{
+  "slack": "weitang",
+  "husky": "tang.we",
+  "name": "Wei Tang",
+  "github": "summerMocha"
+},{
+  "slack": "kochura.v",
+  "husky": "kochura.v",
+  "name": "Vasyl Kochura",
+  "github": "OHROSS"
+},{
+  "slack": "rita",
+  "husky": "chang.chiny",
+  "name": "Rita Chang",
+  "github": "ritachang"
+},{
+  "slack": "emily",
+  "husky": "hopkins.e",
+  "name": "Emily Hopkins",
+  "github": "taxbaby"
+}, {
+  "slack": "kate",
+  "husky": "ka.terrado",
+  "name": "Kate Terrado",
+  "github": "kateterrado"
+}, {
+  "slack": "petronio.l",
+  "husky": "petronio.l",
+  "name": "Lia Petronio",
+  "github": "liapetronio"
+}, {
+  "slack": "egunn",
+  "husky": "gunn.e",
+  "name": "Erica Gunn",
+  "github": "egunn"
+}, {
+  "slack": "fsorodrigues",
+  "husky": "desouzaoliveirarod.f",
+  "name": "Felippe Rodrigues",
+  "github": "fsorodrigues"
+}, {
+  "slack": "george.r",
+  "husky": "redak.g",
+  "name": "George Redak",
+  "github": "George-R"
+}, {
+  "slack": "sutherland.b",
+  "husky": "sutherland.b",
+  "name": "Brooks Sutherland",
+  "github": "bsutherl2"
+}, {
+  "slack": "b.weaver",
+  "husky": "weaver.br",
+  "name": "Brilee Weaver",
+  "github": "brileeweaver"
+}, {
+  "slack": "kim.mcdevitt",
+  "neu": "ki.mcdevitt",
+  "name": "Kim Mcdevitt",
+  "github": "KimberMcDevitt"
+}, {
+  "slack": "miller.n",
+  "husky": "miller.n",
+  "name": "Niyah Miller",
+  "github": "millerniyah"
+},{
+  "slack": "zanerazzaq",
+  "husky": "zanerazzaq",
+  "name": "Zane Razzaq",
+  "github": "zanerazzaq"
+},{
+  "slack": "chenshen0406",
+  "husky": "chen.shen2",
+  "name": "Chen Shen (Becky)",
+  "github": "chenshen0406"
+}
+]

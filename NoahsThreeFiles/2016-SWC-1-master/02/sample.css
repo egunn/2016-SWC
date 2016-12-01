@@ -1,0 +1,15 @@
+body {
+  font-family: 'helvetica', sans-serif;
+}
+
+h1 {
+  font-weight: bold;
+}
+
+.main-content {
+  font-size: 1rem;
+}
+
+div#body1 {
+  color: hsl(180,50%,50%);
+}

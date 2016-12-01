@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 4em;
+  font-family: 'lato', sans-serif;
+  font-size: 12pt;
+  color: hsl(20,10%,80%);
+  background-color: hsl(0,0%,40%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+canvas {
+  background-color: hsl(0,0%,50%);
+  width: 500px;
+}
+.horizontal-bar {
+  width: 500px;
+  display: flex;
+  padding: 1em;
+  background-color: hsl(0,0%,10%);
+  justify-content: space-between;
+  justify-self: stretch;
+}
+.footnote {
+  font-size: 9pt;
+  color: hsl(20,10%,60%);
+}

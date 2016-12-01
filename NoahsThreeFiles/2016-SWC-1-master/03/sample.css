@@ -1,0 +1,66 @@
+body {
+  font-family: 'Josefin Slab', serif;
+}
+
+div, p {
+  border: 2px solid hsl(0,20%,60%);
+  border-radius: 0.2em;
+}
+
+.container {
+  background-color: black;
+  color: white;
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0px;
+  top: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  border: none;
+}
+
+.big {
+  display: block;
+  width: 90%;
+}
+
+.small {
+  display: none;
+  width: 90%;
+}
+
+.inside {
+  background-color: hsl(0,20%,20%);
+  color: white;
+  font-size: 14pt;
+  margin: 1em;
+  padding: 1em;
+  width: 200px;
+}
+
+.inside:hover {
+  background-color: hsl(0,40%,40%);
+  transform: rotate(10deg);
+  transition: 2s;
+}
+
+@media (max-width: 600px) {
+  .big {
+    display: none;
+  }
+  .small {
+    display: block;
+  }
+  .inside {
+    width: 90%;
+  }
+}
+p {
+  padding: 0.5em;
+  background-color: hsl(0,0%,95%);
+  color: hsl(0,20%,20%);
+}

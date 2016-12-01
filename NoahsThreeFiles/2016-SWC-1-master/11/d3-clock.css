@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 4em;
+  font-family: 'lato', sans-serif;
+  font-size: 12pt;
+  color: hsl(20, 10%, 80%);
+  background-color: hsl(0, 0%, 85%);
+}
+
+svg {
+  background-color: hsl(0,10%,90%);
+  font-size: 11pt;
+  border: 1px solid;
+}
+.bar {
+  fill: black;
+  stroke: 2;
+}
+.vertical {
+  display: flex;
+  padding: 1em;
+  justify-content: space-around;
+  justify-self: stretch;
+  flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.horizontal {
+  display: flex;
+  padding: 1em;
+  justify-content: space-around;
+  justify-self: stretch;
+  flex-direction: row;
+}
+
+h3 {
+  font-size: 10pt;
+  font-weight: bold;
+}
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>canvas starter document</title>
+    <style media="screen">
+      body {
+        font-family: 'helvetica', sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 0px;
+        bottom: 0px;
+        left: 0px;
+        right: 0px;
+      }
+      canvas {
+        border: 1px solid hsl(0,10%,90%);
+        width: auto;
+        height: 50%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+  </body>
+
+  <script type="text/javascript">
+    var canvas = document.getElementById('canvas');
+    var drawingPad = canvas.getContext('2d');
+
+    console.log(canvas);
+    console.log(drawingPad);
+
+    drawingPad.fillStyle = "hsla(0,10%,10%,1)";
+    drawingPad.fillRect(0, 0, 20, 20);
+
+    drawingPad.fillStyle = "hsla(0,10%,60%,1)";
+    drawingPad.fillRect(40, 40, 20, 20);
+
+  </script>
+
+</html>

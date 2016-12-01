@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="332b979d-d49e-49b4-9ce0-f9e19d477cf5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../ps-10/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../ps-10/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="332b979d-d49e-49b4-9ce0-f9e19d477cf5" name="Default" comment="" />
     <ignored path="inclass-092016.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -184,7 +182,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../CS7280/termproject/CS7280-FinalProject" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
@@ -319,12 +317,12 @@
       <workItem from="1479765802672" duration="3217000" />
       <workItem from="1479854879009" duration="364000" />
       <workItem from="1479861526448" duration="2305000" />
-      <workItem from="1480129873048" duration="3464000" />
+      <workItem from="1480129873048" duration="4105000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="256772000" />
+    <option name="totallyTimeSpent" value="257413000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
