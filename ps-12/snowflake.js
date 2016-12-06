@@ -18,21 +18,21 @@ var scene = new THREE.Scene();
 var orthoCamera = new THREE.OrthographicCamera(-10, 10, 10, -10, -10,1000);
 
 var aspect = width/height;
-// PerspectiveCamera( Field of View, aspect, near, far )
-var camera = new THREE.PerspectiveCamera( 50, aspect , 0.1, 1000 );
-camera.position.z = 30;
+// PerspectiveCamera( Field of View, aspect, near, far ) near and far set the limits of focal depth/rendering
+var camera = new THREE.PerspectiveCamera( 30, aspect , 0.1, 1000 );
 camera.position.x = 0;
-camera.position.y = 10;
-camera.lookAt({x:0,y:0,z:0});
+camera.position.y = 0;
+camera.position.z = 90;  //90 degrees off of xy plane
+camera.lookAt({x:0,y:0,z:0});  //I believe that the camera always looks at the center of the screen, no matter what you set the angle to
 
 var meshes = [];
 
 
 
-var directionalLight = new THREE.DirectionalLight('white', .1);
+var directionalLight = new THREE.DirectionalLight('white', 0);
 var light = new THREE.AmbientLight('white', 0.7);
 
-directionalLight.position.set(1, 1, 0);
+directionalLight.position.set(1, 1, 1);
 directionalLight.target.position.set( 0, 0, 0 );
 scene.add(directionalLight);
 scene.add(light);
@@ -44,22 +44,13 @@ var renderer = new THREE.WebGLRenderer({
     alpha: true
 });
 
+
 renderer.setSize(width, height);
 
 // Define Geometries, the shapes of objects:
 var cubeGeom   = new THREE.BoxGeometry(10, 10, 10 );
 var planeGeom  = new THREE.PlaneGeometry(50, 50); //percent of screen
 var triangle = new THREE.Geometry();
-/*
-triangle.vertices.push(
-    new THREE.Vector3( -10,  10, 0 ),
-    new THREE.Vector3( -10, -10, 0 ),
-    new THREE.Vector3(  10, -10, 0 ));
-
-
-
-var test = [];
- */
 
 //start by pushing in a center point (will become point 0 in the faces list)
 triangle.vertices.push(new THREE.Vector3( 0, 0, 0 ))
@@ -99,9 +90,19 @@ for (var i=0; i<steps; i++){
 
 console.log(triangle.vertices);
 
+
+/*
+ triangle.vertices.push(
+    new THREE.Vector3( 10*Math.sin(Math.PI*0/180),  10*Math.cos(Math.PI*0/180), 0 ),
+    new THREE.Vector3( 10*Math.sin(Math.PI*60/180),  10*Math.cos(Math.PI*60/180), 0 ),
+    new THREE.Vector3( 10*Math.sin(Math.PI*120/180),  10*Math.cos(Math.PI*120/180), 0 ),
+    new THREE.Vector3( 10*Math.sin(Math.PI*180/180),  10*Math.cos(Math.PI*180/180), 0 ),
+    new THREE.Vector3( 10*Math.sin(Math.PI*240/180),  10*Math.cos(Math.PI*240/180), 0 ),
+    new THREE.Vector3( 10*Math.sin(Math.PI*300/180),  10*Math.cos(Math.PI*300/180), 0 ));
+
 //draw a triangular face for each segment of the hexagon
 //(reworked to draw from center point)
-/*
+
 triangle.faces.push( new THREE.Face3( 0, 1, 2 ) );
 triangle.faces.push( new THREE.Face3( 0, 2, 3 ) );
 triangle.faces.push( new THREE.Face3( 0, 3, 4 ) );
@@ -167,10 +168,10 @@ cameraControls.target.set( 0, 0, 0 );
 cameraControls.addEventListener( 'change', render );
 
 function render() {
-    // window.requestAnimationFrame(this.render.bind(this));
-    // meshes.forEach(function(mesh) {
-    //   mesh.rotateY(0.01);
-    // })
+    window.requestAnimationFrame(this.render.bind(this));  //only requests animation when window is in focus
+     meshes.forEach(function(mesh) {
+     mesh.rotateY(0.05);
+     })
     renderer.render(scene, camera);
 };
 
@@ -202,3 +203,12 @@ function generateTexture() {
     return canvas;
 
 }
+
+// Create an event listener that resizes the renderer with the browser window.
+window.addEventListener('resize', function() {
+    var WIDTH = window.innerWidth,
+        HEIGHT = window.innerHeight;
+    renderer.setSize(WIDTH, HEIGHT);
+    camera.aspect = WIDTH / HEIGHT;
+    camera.updateProjectionMatrix();
+});
