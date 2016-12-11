@@ -1,79 +1,5 @@
-/*
-//modified from http://jsfiddle.net/3drjwj2n/
-var TO_RADIANS = Math.PI / 180;
-
-Particle3D = function(material) {
-    THREE.Particle.call(this, material);
-
-    //this.material = material instanceof Array ? material : [ material ];
-    // define properties
-    this.velocity = new THREE.Vector3(0, -8, 0);
-    this.velocity.rotateX(randomRange(-45, 45));
-    this.velocity.rotateY(randomRange(0, 360));
-    this.gravity = new THREE.Vector3(0, 0, 0);
-    this.drag = 1;
-    // methods...
-};
-
-Particle3D.prototype = new THREE.Particle();
-Particle3D.prototype.constructor = Particle3D;
-
-Particle3D.prototype.updatePhysics = function() {
-    this.velocity *= (this.drag);
-    this.velocity += (this.gravity);
-    this.position += (this.velocity);
-}
-
-THREE.Vector3.prototype.rotateY = function(angle) {
-    cosRY = Math.cos(angle * TO_RADIANS);
-    sinRY = Math.sin(angle * TO_RADIANS);
-
-    var tempz = this.z;;
-    var tempx = this.x;
-
-    this.x = (tempx * cosRY) + (tempz * sinRY);
-    this.z = (tempx * -sinRY) + (tempz * cosRY);
-}
-
-THREE.Vector3.prototype.rotateX = function(angle) {
-    cosRY = Math.cos(angle * TO_RADIANS);
-    sinRY = Math.sin(angle * TO_RADIANS);
-
-    var tempz = this.z;;
-    var tempy = this.y;
-
-    this.y = (tempy * cosRY) + (tempz * sinRY);
-    this.z = (tempy * -sinRY) + (tempz * cosRY);
-}
-
-THREE.Vector3.prototype.rotateZ = function(angle) {
-    cosRY = Math.cos(angle * TO_RADIANS);
-    sinRY = Math.sin(angle * TO_RADIANS);
-
-    var tempx = this.x;;
-    var tempy = this.y;
-
-    this.y = (tempy * cosRY) + (tempx * sinRY);
-    this.x = (tempy * -sinRY) + (tempx * cosRY);
-}
-
-// returns a random number between the two limits provided
-
-function randomRange(min, max) {
-    return ((Math.random() * (max - min)) + min);
-}
-
-*/
-
-
-
-
-
-
-
 var width = window.innerWidth;
 var height = window.innerHeight;
-
 
 //Background canvas styling
 var canvas=document.getElementById("bkgrdcanvas");
@@ -143,6 +69,8 @@ cameraControls = new THREE.OrbitControls( camera, renderer.domElement );
 cameraControls.target.set( 0, 0, 0 );
 cameraControls.addEventListener( 'change', render );
 
+createParticles();
+
 render();
 
 function addMesh(mesh) {
@@ -151,7 +79,7 @@ function addMesh(mesh) {
 }
 
 
-
+/*
 // create the particle variables
 var particleCount = 1800,
     particles = new THREE.Geometry(),
@@ -184,9 +112,11 @@ var particleSystem = new THREE.Points(
 
 // add it to the scene
 scene.add(particleSystem);
+*/
+
 
 function render() {
-    window.requestAnimationFrame(render);
+
     // uncomment to automatically rotate mesh
     meshes.forEach(function(mesh) {
         mesh.rotateY(0.01);
@@ -194,6 +124,8 @@ function render() {
         mesh.rotateX(0.005);
     })
 
+    // add some rotation to the system
+    system.rotation.y += 0.005;
 
     /*
     for(var i = 0; i<particles.length; i++) {
@@ -211,8 +143,93 @@ function render() {
     }
     */
 
+   // console.log(geom.vertices[0]);
+
+    geom.vertices.forEach(function(d) {
+        // check if we need to reset
+        if (d.y < -height/2) {
+            d.y = 200;
+            d.velocity.x = -0.5+(.005*Math.random());
+            d.velocity.y = -0.5+(.01*Math.random());
+            d.velocity.z = -0.5+(.01*Math.random());
+        }
+
+        else {
+            d.x += d.velocity.x;
+            d.y += d.velocity.y;
+            d.z += d.velocity.z;
+            //d.velocity.y += .05*Math.random();
+        }
+    });
+
+    //console.log(geom.vertices[0]);
+
+    // flag to the particle system
+    // that we've changed its vertices.
+    system.
+        geometry.
+        verticesNeedUpdate = true;
+
+    //system.update();  //update not a function??
+
+    //console.log(system);
+    //debugger;
+
     renderer.render(scene, camera);
+
+    window.requestAnimationFrame(render);
 };
+
+
+
+
+var geom;
+var system;
+
+function createParticles() {
+
+    geom = new THREE.Geometry();
+    var material = new THREE.PointsMaterial({
+        size: 10,
+        map: THREE.ImageUtils.loadTexture(
+            "snowflake.png"
+        ),
+        blending: THREE.AdditiveBlending,
+        transparent:true,
+        vertexColors: true,
+        //color: 0xffffff
+    });
+
+    for (var x = -10; x < 10; x++) {
+        for (var y = -10; y < 10; y++) {
+            for (var z = -20; z < -10; z++){
+                var particle = new THREE.Vector3(x * 30*Math.random(), y * 30*Math.random(), z * 75*Math.random());
+
+                // create a velocity vector
+                particle.velocity = new THREE.Vector3(
+                    0,              // x
+                    -Math.random(), // y: random vel
+                    0);             //z
+
+                geom.vertices.push(particle);
+                geom.colors.push(new THREE.Color(Math.random()*.1 * 0xDADAE8));
+            }
+        }
+    }
+
+    system = new THREE.Points(geom, material);
+
+    // also update the particle system to
+    // sort the particles which enables
+    // the behaviour we want
+    system.sortParticles = true;
+
+    scene.add(system);
+}
+
+
+
+
 
 function loadMesh(name, callback){
     var objLoader = new THREE.OBJLoader();
@@ -228,6 +245,14 @@ function loadMesh(name, callback){
 
 
 
+// Create an event listener that resizes the renderer with the browser window.
+window.addEventListener('resize', function() {
+    var WIDTH = window.innerWidth,
+        HEIGHT = window.innerHeight;
+    renderer.setSize(WIDTH, HEIGHT);
+    camera.aspect = WIDTH / HEIGHT;
+    camera.updateProjectionMatrix();
+});
 
 
 
@@ -273,7 +298,72 @@ function loadMesh(name, callback){
 
 
 
+/*
+ //modified from http://jsfiddle.net/3drjwj2n/
+ var TO_RADIANS = Math.PI / 180;
 
+ Particle3D = function(material) {
+ THREE.Particle.call(this, material);
+
+ //this.material = material instanceof Array ? material : [ material ];
+ // define properties
+ this.velocity = new THREE.Vector3(0, -8, 0);
+ this.velocity.rotateX(randomRange(-45, 45));
+ this.velocity.rotateY(randomRange(0, 360));
+ this.gravity = new THREE.Vector3(0, 0, 0);
+ this.drag = 1;
+ // methods...
+ };
+
+ Particle3D.prototype = new THREE.Particle();
+ Particle3D.prototype.constructor = Particle3D;
+
+ Particle3D.prototype.updatePhysics = function() {
+ this.velocity *= (this.drag);
+ this.velocity += (this.gravity);
+ this.position += (this.velocity);
+ }
+
+ THREE.Vector3.prototype.rotateY = function(angle) {
+ cosRY = Math.cos(angle * TO_RADIANS);
+ sinRY = Math.sin(angle * TO_RADIANS);
+
+ var tempz = this.z;;
+ var tempx = this.x;
+
+ this.x = (tempx * cosRY) + (tempz * sinRY);
+ this.z = (tempx * -sinRY) + (tempz * cosRY);
+ }
+
+ THREE.Vector3.prototype.rotateX = function(angle) {
+ cosRY = Math.cos(angle * TO_RADIANS);
+ sinRY = Math.sin(angle * TO_RADIANS);
+
+ var tempz = this.z;;
+ var tempy = this.y;
+
+ this.y = (tempy * cosRY) + (tempz * sinRY);
+ this.z = (tempy * -sinRY) + (tempz * cosRY);
+ }
+
+ THREE.Vector3.prototype.rotateZ = function(angle) {
+ cosRY = Math.cos(angle * TO_RADIANS);
+ sinRY = Math.sin(angle * TO_RADIANS);
+
+ var tempx = this.x;;
+ var tempy = this.y;
+
+ this.y = (tempy * cosRY) + (tempx * sinRY);
+ this.x = (tempy * -sinRY) + (tempx * cosRY);
+ }
+
+ // returns a random number between the two limits provided
+
+ function randomRange(min, max) {
+ return ((Math.random() * (max - min)) + min);
+ }
+
+ */
 
 
 
@@ -475,11 +565,4 @@ function generateTexture() {
 }
 */
 
-// Create an event listener that resizes the renderer with the browser window.
-window.addEventListener('resize', function() {
-    var WIDTH = window.innerWidth,
-        HEIGHT = window.innerHeight;
-    renderer.setSize(WIDTH, HEIGHT);
-    camera.aspect = WIDTH / HEIGHT;
-    camera.updateProjectionMatrix();
-});
+
