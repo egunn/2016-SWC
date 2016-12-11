@@ -5,17 +5,6 @@
 <head>
     <title>Example 07.01 - Particles - Only works in CanvasRenderer</title>
     <script src="./vendor/three.min.js"></script>
-    <!--<script type="text/javascript" src="../libs/jquery-1.9.0.js"></script>
-    <script type="text/javascript" src="../libs/stats.js"></script>
-    <script type="text/javascript" src="../libs/dat.gui.js"></script>-->
-    <style>
-        body {
-            /* set margin to 0 and overflow to hidden, to go fullscreen */
-            margin: 0;
-            overflow: hidden;
-            background-color: #000000;
-        }
-    </style>
 </head>
 <body>
 
@@ -28,28 +17,25 @@
 <!-- Javascript code that runs our Three.js examples -->
 <script type="text/javascript">
 
-    // once everything is loaded, we run our Three.js stuff.
-    //$(function () {
+    // create a scene, that will hold all our elements such as objects, cameras and lights.
+    var scene = new THREE.Scene();
 
-        //var stats = initStats();
+    // create a camera, which defines where we're looking at.
+    var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
 
-        // create a scene, that will hold all our elements such as objects, cameras and lights.
-        var scene = new THREE.Scene();
+    var width = window.innerWidth;
+    var height = window.innerHeight;
 
-        // create a camera, which defines where we're looking at.
-        var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
 
-        // create a render and set the size
-        //var canvasRenderer = new THREE.CanvasRenderer();
-        //canvasRenderer.setClearColor(new THREE.Color(0x000000, 1.0));
-        //canvasRenderer.setSize(window.innerWidth, window.innerHeight);
-
-    var renderer = new THREE.WebGLRenderer({
+    // create a render and set the size
+    var webGLRenderer = new THREE.WebGLRenderer({
         canvas: document.getElementById("threecanvas"),
         antialias: true,
         preserveDrawingBuffer: false,
         alpha: true
     });
+    webGLRenderer.setClearColor(new THREE.Color(0x000000, 1.0));
+    webGLRenderer.setSize(window.innerWidth, window.innerHeight);
 
 
     var light = new THREE.AmbientLight('white', 0.5);
@@ -60,37 +46,37 @@
         camera.position.y = 0;
         camera.position.z = 150;
 
-        // add the output of the renderer to the html element
-        //$("#WebGL-output").append(canvasRenderer.domElement);
-
-
         createParticles();
         render();
 
-        function createParticles() {
-            var material = new THREE.PointsMaterial();
 
+    function createParticles() {
 
-            for (var x = -5; x < 5; x++) {
-                for (var y = -5; y < 5; y++) {
+        var geom = new THREE.Geometry();
+        var material = new THREE.PointsMaterial({size: 4, vertexColors: true, color: 0xffffff});
 
-                    var particle = new THREE.Points(material);
-                    particle.position.set(x * 10, y * 10, 0);
-                    scene.add(particle);
-
-                }
+        for (var x = -5; x < 5; x++) {
+            for (var y = -5; y < 5; y++) {
+                var particle = new THREE.Vector3(x * 10, y * 10, 0);
+                geom.vertices.push(particle);
+                geom.colors.push(new THREE.Color(Math.random() * 0x00ffff));
             }
         }
 
+        var system = new THREE.Points(geom, material);
+        scene.add(system);
+    }
 
-        function render() {
-            requestAnimationFrame(render);
-            renderer.render(scene, camera);
-        }
 
-    //});
+    function render() {
+        requestAnimationFrame(render);
+
+        webGLRenderer.render(scene, camera);
+    }
+
 
 
 </script>
 </body>
 </html>
+
