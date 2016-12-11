@@ -1,5 +1,79 @@
+/*
+//modified from http://jsfiddle.net/3drjwj2n/
+var TO_RADIANS = Math.PI / 180;
+
+Particle3D = function(material) {
+    THREE.Particle.call(this, material);
+
+    //this.material = material instanceof Array ? material : [ material ];
+    // define properties
+    this.velocity = new THREE.Vector3(0, -8, 0);
+    this.velocity.rotateX(randomRange(-45, 45));
+    this.velocity.rotateY(randomRange(0, 360));
+    this.gravity = new THREE.Vector3(0, 0, 0);
+    this.drag = 1;
+    // methods...
+};
+
+Particle3D.prototype = new THREE.Particle();
+Particle3D.prototype.constructor = Particle3D;
+
+Particle3D.prototype.updatePhysics = function() {
+    this.velocity *= (this.drag);
+    this.velocity += (this.gravity);
+    this.position += (this.velocity);
+}
+
+THREE.Vector3.prototype.rotateY = function(angle) {
+    cosRY = Math.cos(angle * TO_RADIANS);
+    sinRY = Math.sin(angle * TO_RADIANS);
+
+    var tempz = this.z;;
+    var tempx = this.x;
+
+    this.x = (tempx * cosRY) + (tempz * sinRY);
+    this.z = (tempx * -sinRY) + (tempz * cosRY);
+}
+
+THREE.Vector3.prototype.rotateX = function(angle) {
+    cosRY = Math.cos(angle * TO_RADIANS);
+    sinRY = Math.sin(angle * TO_RADIANS);
+
+    var tempz = this.z;;
+    var tempy = this.y;
+
+    this.y = (tempy * cosRY) + (tempz * sinRY);
+    this.z = (tempy * -sinRY) + (tempz * cosRY);
+}
+
+THREE.Vector3.prototype.rotateZ = function(angle) {
+    cosRY = Math.cos(angle * TO_RADIANS);
+    sinRY = Math.sin(angle * TO_RADIANS);
+
+    var tempx = this.x;;
+    var tempy = this.y;
+
+    this.y = (tempy * cosRY) + (tempx * sinRY);
+    this.x = (tempy * -sinRY) + (tempx * cosRY);
+}
+
+// returns a random number between the two limits provided
+
+function randomRange(min, max) {
+    return ((Math.random() * (max - min)) + min);
+}
+
+*/
+
+
+
+
+
+
+
 var width = window.innerWidth;
 var height = window.innerHeight;
+
 
 //Background canvas styling
 var canvas=document.getElementById("bkgrdcanvas");
@@ -10,7 +84,203 @@ my_gradient.addColorStop(1,"#2c2e33");
 context.fillStyle=my_gradient;
 context.fillRect(0,0,width,height);
 
+/*
+var particles = [];
+var particleImage = new Image(); //THREE.ImageUtils.loadTexture( "http://i.imgur.com/cTALZ.png" );
+particleImage.src = './snowflake.png';
+*/
 
+var scene = new THREE.Scene();
+var meshes = [];
+
+// PerspectiveCamera( fov, aspect, near, far )
+var camera = new THREE.PerspectiveCamera( 50, width/height , 0.1, 1000 );
+camera.position.x = 0;
+camera.position.y = 10;
+camera.position.z = 75;
+camera.lookAt({x:0,y:0,z:0});
+
+var renderer = new THREE.WebGLRenderer({
+    canvas: document.getElementById("threecanvas"),
+    antialias: true,
+    preserveDrawingBuffer: false,
+    alpha: true
+});
+renderer.setSize(width, height);
+
+var directionalLight = new THREE.DirectionalLight('white', 0.5);
+var light = new THREE.AmbientLight('white', 0.5);
+directionalLight.position.set(0, 10, 6);
+scene.add(directionalLight);
+scene.add(light);
+
+/*
+var material = new THREE.ParticleBasicMaterial( { map: new THREE.Texture(particleImage) } );
+
+for (var i = 0; i < 500; i++) {
+
+    particle = new Particle3D( material);
+    particle.position.x = Math.random() * 2000 - 1000;
+    particle.position.y = Math.random() * 2000 - 1000;
+    particle.position.z = Math.random() * 2000 - 1000;
+    particle.scale.x = particle.scale.y =  1;
+    scene.add( particle );
+
+    particles.push(particle);
+}
+*/
+
+loadMesh('snowflake.3', function(obj){
+    obj.position.y = 0;
+    obj.scale.x = 1;
+    obj.scale.y = 1;
+    obj.scale.z = 1;
+    addMesh(obj);
+});
+
+
+cameraControls = new THREE.OrbitControls( camera, renderer.domElement );
+cameraControls.target.set( 0, 0, 0 );
+cameraControls.addEventListener( 'change', render );
+
+render();
+
+function addMesh(mesh) {
+    meshes.push(mesh);
+    scene.add(mesh);
+}
+
+
+
+// create the particle variables
+var particleCount = 1800,
+    particles = new THREE.Geometry(),
+    pMaterial = new THREE.PointsMaterial({
+        color: 0xFFFFFF,
+        size: 20
+    });
+
+// now create the individual particles
+for (var p = 0; p < particleCount; p++) {
+
+    // create a particle with random
+    // position values, -250 -> 250
+    var pX = Math.random() * 500 - 250,
+        pY = Math.random() * 500 - 250,
+        pZ = Math.random() * 500 - 250,
+        particle = new THREE.Vector3(
+            new THREE.Vector3(pX, pY, pZ)
+        );
+
+    // add it to the geometry
+    particles.vertices.push(particle);
+}
+
+
+// create the particle system
+var particleSystem = new THREE.Points(
+    particles,
+    pMaterial);
+
+// add it to the scene
+scene.add(particleSystem);
+
+function render() {
+    window.requestAnimationFrame(render);
+    // uncomment to automatically rotate mesh
+    meshes.forEach(function(mesh) {
+        mesh.rotateY(0.01);
+        mesh.rotateZ(0.005);
+        mesh.rotateX(0.005);
+    })
+
+
+    /*
+    for(var i = 0; i<particles.length; i++) {
+
+        var particle = particles[i];
+        particle.updatePhysics();
+
+        with(particle.position) {
+            if(y<-1000) y+=2000;
+            if(x>1000) x-=2000;
+            else if(x<-1000) x+=2000;
+            if(z>1000) z-=2000;
+            else if(z<-1000) z+=2000;
+        }
+    }
+    */
+
+    renderer.render(scene, camera);
+};
+
+function loadMesh(name, callback){
+    var objLoader = new THREE.OBJLoader();
+    var matLoader = new THREE.MTLLoader();
+    matLoader.load(name + '.mtl', function(materials) {
+        materials.preload();
+        objLoader.setMaterials(materials);
+        objLoader.load(name + '.obj',function (obj) {
+            callback(obj);
+        });
+    });
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 //Three js
 var scene = new THREE.Scene();
 
@@ -53,7 +323,7 @@ var planeGeom  = new THREE.PlaneGeometry(50, 50); //percent of screen
 var triangle = new THREE.Geometry();
 
 //start by pushing in a center point (will become point 0 in the faces list)
-triangle.vertices.push(new THREE.Vector3( 0, 0, 0 ))
+triangle.vertices.push(new THREE.Vector3( 0, 0, 0 ));
 
 
 //reference https://gist.github.com/robertcasanova/6593814
@@ -109,7 +379,7 @@ triangle.faces.push( new THREE.Face3( 0, 3, 4 ) );
 triangle.faces.push( new THREE.Face3( 0, 4, 5 ) );
 triangle.faces.push( new THREE.Face3( 0, 5, 6 ) );
 triangle.faces.push( new THREE.Face3( 0, 6, 1 ) );
-*/
+
 
 
 makeFaces(triangle.vertices);
@@ -129,10 +399,11 @@ triangle.computeBoundingSphere();
     side: THREE.DoubleSide,
     wireframe: false,
     wireframeLinewidth: 12
-});*/
+});
 
 //from http://stackoverflow.com/questions/14477183/glossy-materials-in-three-js
 //used for making shiny surfaces
+/*
 var cubeMaterial = new THREE.MeshPhongMaterial( {
     color: '#eaf2ff',               //set material color
     side: THREE.DoubleSide,         //make the object double-sided (only works with one rotational direction??
@@ -152,7 +423,7 @@ var planeMaterial = new THREE.MeshBasicMaterial({
 });
 
 var cube = new THREE.Mesh(cubeGeom, cubeMaterial );
-cube.position.x = 15
+cube.position.x = 15;
 var plane = new THREE.Mesh(planeGeom, planeMaterial);
 var triangleObj = new THREE.Mesh(triangle, cubeMaterial);
 addMesh(triangleObj);
@@ -171,12 +442,11 @@ function render() {
     window.requestAnimationFrame(this.render.bind(this));  //only requests animation when window is in focus
      meshes.forEach(function(mesh) {
      mesh.rotateY(0.05);
-     })
+     });
     renderer.render(scene, camera);
 };
 
 render();
-
 
 
 //from http://jsfiddle.net/FtML5/3/
@@ -203,6 +473,7 @@ function generateTexture() {
     return canvas;
 
 }
+*/
 
 // Create an event listener that resizes the renderer with the browser window.
 window.addEventListener('resize', function() {
